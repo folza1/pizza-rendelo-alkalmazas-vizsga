@@ -56,7 +56,7 @@ function Home() {
             <div className="text-center my-5">
                 <h2>Rendelj most online!</h2>
                 <Link to="/pizzas" className="custom-link">
-                    <button className="btn btn-danger btn-lg mt-3">
+                    <button className="btn btn-danger fs-3 rounded-0 btn-lg mt-3">
                         Rendelés
                     </button>
                 </Link>

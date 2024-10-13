@@ -15033,7 +15033,7 @@ function Home() {
         to: "/pizzas",
         className: "custom-link",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-          className: "btn btn-danger btn-lg mt-3",
+          className: "btn btn-danger fs-3 rounded-0 btn-lg mt-3",
           children: "Rendel\xE9s"
         })
       })]
