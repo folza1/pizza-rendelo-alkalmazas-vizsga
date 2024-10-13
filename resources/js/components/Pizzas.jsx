@@ -2,6 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
+import "./pizzas.css";
 
 function Pizzas() {
     // useOutletContext használata a Layout-ból jövő state és setter eléréséhez
@@ -50,6 +51,18 @@ function Pizzas() {
                             <li>
                                 <h2>{pizza.name}</h2>
                                 <h3>{pizza.id}</h3>
+                                <h4>{pizza.likes} Likes</h4>
+
+                                {/* Csillagok dinamikus osztályozása */}
+                                {[...Array(5)].map((_, index) => (
+                                    <span
+                                        key={index}
+                                        className={`fa fa-star ${
+                                            index < pizza.likes ? "checked" : ""
+                                        }`}
+                                    ></span>
+                                ))}
+
                                 <p>Ár: {pizza.price} Ft</p>
                                 <h3>Feltétek:</h3>
                                 <ul>
