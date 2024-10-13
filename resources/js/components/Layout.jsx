@@ -14,7 +14,7 @@ function Layout() {
                     <Link to="/" className="mb-2 mb-md-0 me-md-2">
                         <button
                             type="button"
-                            className="btn btn-success fs-3 rounded-0 responsive-button"
+                            className="btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom"
                         >
                             Kezdőlap
                         </button>
@@ -23,7 +23,7 @@ function Layout() {
                     <Link to="/pizzas" className="mb-2 mb-md-0 me-md-2">
                         <button
                             type="button"
-                            className="btn btn-secondary fs-3 rounded-0 responsive-button"
+                            className="btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom"
                         >
                             Pizzák
                         </button>
@@ -32,7 +32,7 @@ function Layout() {
                     <Link to="/contact" className="mb-2 mb-md-0 me-md-2">
                         <button
                             type="button"
-                            className="btn btn-danger fs-3 rounded-0 responsive-button"
+                            className="btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom"
                         >
                             Kapcsolat
                         </button>
@@ -41,7 +41,7 @@ function Layout() {
                     <Link to="/cart" className="mb-2 mb-md-0">
                         <button
                             type="button"
-                            className="btn btn-warning fs-3 rounded-0 responsive-button"
+                            className="btn btn-warning fs-3 rounded-0 responsive-button border-bottom-custom"
                         >
                             Kosár ({count})
                         </button>

@@ -14637,7 +14637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".border-bottom-custom {\n    border: none; /* Remove all borders */\n    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15084,7 +15084,7 @@ function Layout() {
           className: "mb-2 mb-md-0 me-md-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "btn btn-success fs-3 rounded-0 responsive-button",
+            className: "btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom",
             children: "Kezd\u0151lap"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
@@ -15092,7 +15092,7 @@ function Layout() {
           className: "mb-2 mb-md-0 me-md-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "btn btn-secondary fs-3 rounded-0 responsive-button",
+            className: "btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom",
             children: "Pizz\xE1k"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
@@ -15100,7 +15100,7 @@ function Layout() {
           className: "mb-2 mb-md-0 me-md-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "btn btn-danger fs-3 rounded-0 responsive-button",
+            className: "btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom",
             children: "Kapcsolat"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
@@ -15108,7 +15108,7 @@ function Layout() {
           className: "mb-2 mb-md-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
             type: "button",
-            className: "btn btn-warning fs-3 rounded-0 responsive-button",
+            className: "btn btn-warning fs-3 rounded-0 responsive-button border-bottom-custom",
             children: ["Kos\xE1r (", count, ")"]
           })
         })]
