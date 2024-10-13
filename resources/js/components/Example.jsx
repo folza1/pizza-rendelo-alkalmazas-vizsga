@@ -1,17 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./Home";
+import Pizzas from "./Pizzas";
+import Contact from "./Contact";
+import Cart from "./Cart";
+import NoPage from "./NoPage";
 
 function Example() {
     return (
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col-12">
-                    <div className="card">
-                        <h1>Example Component</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="pizzas" element={<Pizzas />} />
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="cart" element={<Cart />} />
+                    <Route path="*" element={<NoPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 

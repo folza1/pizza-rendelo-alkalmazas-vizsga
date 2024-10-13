@@ -1,0 +1,8 @@
+.custom-link {
+    text-decoration: none;
+    color: white;
+}
+
+.custom-link:hover {
+    color: lightgray; /* opcionális hover effektus */
+}
