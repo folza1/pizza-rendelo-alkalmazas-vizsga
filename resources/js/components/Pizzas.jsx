@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { useOutletContext } from "react-router-dom";
 
 function Pizzas() {
-    // State létrehozása, kezdeti értéke 0
-    const [count, setCount] = useState(0);
+    // useOutletContext használata a Layout-ból jövő state és setter eléréséhez
+    const { count, setCount } = useOutletContext();
 
-    // Függvény a számláló növelésére
     const incrementCount = () => {
         setCount(count + 1);
     };

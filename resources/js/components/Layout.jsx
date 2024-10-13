@@ -1,7 +1,11 @@
 import { Outlet, Link } from "react-router-dom";
+import React, { useState } from "react";
+
 import "./layout.css";
 
 function Layout() {
+    const [count, setCount] = useState(0);
+
     return (
         <>
             <div>
@@ -23,13 +27,13 @@ function Layout() {
                     </button>
                     <button type="button" className="btn btn-warning fs-3">
                         <Link to="/cart" className="custom-link">
-                            Kosár
+                            Kosár ({count})
                         </Link>
                     </button>
                 </div>
             </div>
 
-            <Outlet />
+            <Outlet context={{ count, setCount }} />
         </>
     );
 }
