@@ -43,21 +43,24 @@ function Pizzas() {
 
             <div>
                 <h1>Pizzák</h1>
-                <ul>
-                    {pizzas.map((pizza) => (
-                        <li key={pizza.id}>
-                            <h2>{pizza.name}</h2>
-                            <h3>{pizza.id}</h3>
-                            <p>Ár: {pizza.price} Ft</p>
-                            <h3>Feltétek:</h3>
-                            <ul>
-                                {pizza.toppings.map((topping) => (
-                                    <li key={topping.id}>{topping.name}</li>
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
+                {pizzas.map((pizza) => (
+                    <div key={pizza.id}>
+                        <img src={pizza.image} alt={pizza.name} />
+                        <ul>
+                            <li>
+                                <h2>{pizza.name}</h2>
+                                <h3>{pizza.id}</h3>
+                                <p>Ár: {pizza.price} Ft</p>
+                                <h3>Feltétek:</h3>
+                                <ul>
+                                    {pizza.toppings.map((topping) => (
+                                        <li key={topping.id}>{topping.name}</li>
+                                    ))}
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                ))}
             </div>
         </>
     );
