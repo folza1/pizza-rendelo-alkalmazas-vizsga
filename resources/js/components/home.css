@@ -1,0 +1,5 @@
+.img-fill {
+    width: 100%; /* Szélesség 100% */
+    height: 200px; /* Magasság 200px */
+    object-fit: cover; /* Kép kitöltése */
+}

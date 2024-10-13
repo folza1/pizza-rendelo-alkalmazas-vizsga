@@ -1,8 +1,6 @@
-.custom-link {
-    text-decoration: none;
-    color: white;
-}
-
-.custom-link:hover {
-    color: lightgray; /* opcionális hover effektus */
+/* Csak sm méret alatt */
+@media (max-width: 770px) {
+    .responsive-button {
+        width: 100%;
+    }
 }
