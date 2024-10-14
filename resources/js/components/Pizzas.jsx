@@ -143,9 +143,21 @@ function Pizzas() {
                                         ))}
                                     </div>
 
-                                    <button className="btn btn-warning fs-3 rounded-0 btn-lg mt-3 border-black-2">
-                                        Kosárba
-                                    </button>
+                                    <div className="d-flex align-items-center mt-3">
+                                        <button className="btn btn-warning fs-3 rounded-0 btn-lg border-black-2">
+                                            Kosárba
+                                        </button>
+                                        <input
+                                            type="number"
+                                            className="form-control me-2 mx-2"
+                                            min="1"
+                                            defaultValue="1"
+                                            style={{
+                                                width: "70px",
+                                                height: "60px",
+                                            }} // Magasság beállítása a gomb magasságával
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>

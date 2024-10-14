@@ -15329,9 +15329,21 @@ function Pizzas() {
                       } // Háromszoros méret
                     }, index);
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                  className: "btn btn-warning fs-3 rounded-0 btn-lg mt-3 border-black-2",
-                  children: "Kos\xE1rba"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "d-flex align-items-center mt-3",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                    className: "btn btn-warning fs-3 rounded-0 btn-lg border-black-2",
+                    children: "Kos\xE1rba"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    type: "number",
+                    className: "form-control me-2 mx-2",
+                    min: "1",
+                    defaultValue: "1",
+                    style: {
+                      width: "70px",
+                      height: "60px"
+                    } // Magasság beállítása a gomb magasságával
+                  })]
                 })]
               })
             })
