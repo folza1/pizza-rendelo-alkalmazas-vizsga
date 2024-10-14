@@ -14637,7 +14637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".border-bottom-custom {\n    border: none; /* Remove all borders */\n    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sticky {\n    position: sticky;\n    top: 0;\n    z-index: 1000;\n    background-color: white;\n  }\n\n.border-bottom-custom {\n    border: none; /* Remove all borders */\n    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15101,6 +15101,7 @@ function Layout() {
     setCount = _useState2[1];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "sticky",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "border d-flex flex-column flex-md-row justify-content-md-end",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {

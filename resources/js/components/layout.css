@@ -1,3 +1,10 @@
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+  }
+
 .border-bottom-custom {
     border: none; /* Remove all borders */
     border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */

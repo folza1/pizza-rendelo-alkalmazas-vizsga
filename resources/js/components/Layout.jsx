@@ -8,8 +8,8 @@ function Layout() {
 
     return (
         <>
-            <div>
-                {/* Rács a gombokhoz */}
+            <div className="sticky">
+                {/* Rács a gombokhoz, sticky beállítások */}
                 <div className="border d-flex flex-column flex-md-row justify-content-md-end">
                     <Link to="/" className="mb-2 mb-md-0 me-md-2">
                         <button
