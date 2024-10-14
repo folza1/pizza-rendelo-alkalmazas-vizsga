@@ -14876,6 +14876,9 @@ function Cart() {
     count = _useOutletContext.count;
   var _useCart = (0,_CartContext__WEBPACK_IMPORTED_MODULE_1__.useCart)(),
     cartItems = _useCart.cartItems;
+
+  // Részösszegek összegének inicializálása
+  var totalAmount = 0;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
       children: "Kos\xE1r"
@@ -14888,10 +14891,26 @@ function Cart() {
         children: "A kos\xE1r \xFCres."
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
         children: cartItems.map(function (item, index) {
+          // Alapár, számra konvertálva
+          var basePrice = Number(item.price); // Győződj meg róla, hogy szám
+
+          // Árkalkuláció a méret alapján
+          var adjustedPrice = basePrice; // Alapár
+
+          if (item.size === "XL") {
+            adjustedPrice *= 1.25; // XL méret esetén
+          } else if (item.size === "XXL") {
+            adjustedPrice *= 1.5; // XXL méret esetén
+          }
+
+          // Részösszeg hozzáadása az összesített összeghez
+          totalAmount += adjustedPrice * item.quantity;
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            children: [item.name, " - ", item.size, " - ", item.quantity, " db -", item.price, " Ft / db - \xD6sszesen:", " ", item.price * item.quantity, " Ft"]
+            children: [item.name, " - ", item.size, " - ", item.quantity, " ", "db -", adjustedPrice.toFixed(2), " Ft / db - R\xE9sz\xF6sszeg:", " ", (adjustedPrice * item.quantity).toFixed(2), " ", "Ft"]
           }, index);
         })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
+        children: ["\xD6sszesen: ", totalAmount.toFixed(2), " Ft"]
       })]
     })]
   });
