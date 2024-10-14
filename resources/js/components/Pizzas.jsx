@@ -42,6 +42,7 @@ function Pizzas() {
     const handleAddToCart = (pizza) => {
         addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel
         incrementCount(); // Számláló frissítése
+        setQuantity(1);
     };
 
     return (
