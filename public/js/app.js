@@ -14637,7 +14637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".header-my-green{\n    background-color: #81f5FF;\n  }\n\n.sticky {\n    position: sticky;\n    top: 0;\n    z-index: 1000;\n    background-color: white;\n  }\n\n.button-my-green-2{\n    background-color: #81f542;\n}\n\n.border-bottom-custom {\n    border: none; /* Remove all borders */\n    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header-my-green{\n    background-color: white;\n  }\n\n.header-border{\n    border-bottom: 2px solid black;\n}\n\n.sticky {\n    position: sticky;\n    top: 0;\n    z-index: 1000;\n    background-color: white;\n  }\n\n.button-my-green-2{\n    background-color: black;\n    color: white;\n    font-weight: bolder;\n    border-bottom: 2px solid blue; /* Add a 4px solid red border at the bottom */\n    border-left: 2px solid blue;\n    border-right: 2px solid blue;\n}\n\n.border-x{\n    border: none; /* Remove all borders */\n    border-bottom: 2px solid black; /* Add a 4px solid red border at the bottom */\n    border-left: 2px solid black;\n    border-right: 2px solid black;\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n.color-black:hover{\n    font-weight: bolder;\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14661,7 +14661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-my-green{\n    background-color: #81f5FF;\n    font-size: 12px;\n}\n\n.button-my-green-70 {\n  background-color: #81f5CC;\n  font-size: 12px;\n}\n\n.button-my-green-85 {\n  background-color: #81f500;\n  font-size: 12px;\n}\n\n.button-my-green:hover, .button-my-green-70:hover, .button-my-green-85:hover {\n  background-color: lightgray;\n}\n\n.button-border-2{\n    border-bottom: 2px solid black;\n}\n\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-border-2{\n  border-bottom: 1px solid black;\n  border-left: 1px solid black;\n  border-right: 1px solid black;\n}\n\n.bg-gray:hover {\n  background-color: lightgray;\n}\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15204,7 +15204,7 @@ function Layout() {
     setCount = _useState2[1];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "sticky",
+      className: "sticky header-border",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "border d-flex flex-column flex-md-row justify-content-md-end header-my-green",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
@@ -15212,7 +15212,7 @@ function Layout() {
           className: "mb-2 mb-md-0 me-md-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom",
+            className: "btn header-my-green border-x fs-3 rounded-0 responsive-button",
             children: "Kezd\u0151lap"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
@@ -15220,7 +15220,7 @@ function Layout() {
           className: "mb-2 mb-md-0 me-md-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom",
+            className: "btn header-my-green border-x fs-3 rounded-0 responsive-button",
             children: "Pizz\xE1k"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
@@ -15228,16 +15228,19 @@ function Layout() {
           className: "mb-2 mb-md-0 me-md-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom",
+            className: "btn header-my-green border-x fs-3 rounded-0 responsive-button",
             children: "Kapcsolat"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
           to: "/cart",
           className: "mb-2 mb-md-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "button",
-            className: "btn button-my-green-2 fs-3 rounded-0 responsive-button border-bottom-custom",
-            children: ["Kos\xE1r (", count, ")"]
+            className: "btn button-my-green-2 fs-3 rounded-0 responsive-button",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+              className: "color-black",
+              children: ["Kos\xE1r (", count, ")"]
+            })
           })
         })]
       })
@@ -15394,7 +15397,7 @@ function Pizzas() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "d-flex flex-row w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
-            className: "btn button-my-green m-1 rounded-0 w-50 button-border-2",
+            className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
             children: ["\xC1r szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15408,7 +15411,7 @@ function Pizzas() {
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
-            className: "btn button-my-green m-1 rounded-0 w-50 button-border-2",
+            className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
             children: ["\xC1r szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15425,7 +15428,7 @@ function Pizzas() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "d-flex flex-row w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
-            className: "btn button-my-green-85 m-1 rounded-0 w-50 button-border-2",
+            className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
             children: ["N\xE9v szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15439,7 +15442,7 @@ function Pizzas() {
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
-            className: "btn button-my-green-85 m-1 rounded-0 w-50 button-border-2",
+            className: "btn bg-white m-1 rounded-0 w-50 button-border-2",
             children: ["N\xE9v szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15456,7 +15459,7 @@ function Pizzas() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "d-flex flex-row w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
-            className: "btn button-my-green-70 m-1 rounded-0 w-50 button-border-2",
+            className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
             children: ["N\xE9pszer\u0171s\xE9g szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15470,7 +15473,7 @@ function Pizzas() {
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
-            className: "btn button-my-green-70 m-1 rounded-0 w-50 button-border-2",
+            className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
             children: ["N\xE9pszer\u0171s\xE9g szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15502,7 +15505,7 @@ function Pizzas() {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "row justify-content-center my-4",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "col-6 mx-auto",
+            className: "col-8 mx-auto",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "card",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {

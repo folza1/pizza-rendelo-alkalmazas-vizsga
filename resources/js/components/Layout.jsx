@@ -8,13 +8,13 @@ function Layout() {
 
     return (
         <>
-            <div className="sticky">
+            <div className="sticky header-border">
                 {/* Rács a gombokhoz, sticky beállítások */}
                 <div className="border d-flex flex-column flex-md-row justify-content-md-end header-my-green">
                     <Link to="/" className="mb-2 mb-md-0 me-md-2">
                         <button
                             type="button"
-                            className="btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom"
+                            className="btn header-my-green border-x fs-3 rounded-0 responsive-button"
                         >
                             Kezdőlap
                         </button>
@@ -23,7 +23,7 @@ function Layout() {
                     <Link to="/pizzas" className="mb-2 mb-md-0 me-md-2">
                         <button
                             type="button"
-                            className="btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom"
+                            className="btn header-my-green border-x fs-3 rounded-0 responsive-button"
                         >
                             Pizzák
                         </button>
@@ -32,7 +32,7 @@ function Layout() {
                     <Link to="/contact" className="mb-2 mb-md-0 me-md-2">
                         <button
                             type="button"
-                            className="btn btn-secondary fs-3 rounded-0 responsive-button border-bottom-custom"
+                            className="btn header-my-green border-x fs-3 rounded-0 responsive-button"
                         >
                             Kapcsolat
                         </button>
@@ -41,9 +41,9 @@ function Layout() {
                     <Link to="/cart" className="mb-2 mb-md-0">
                         <button
                             type="button"
-                            className="btn button-my-green-2 fs-3 rounded-0 responsive-button border-bottom-custom"
+                            className="btn button-my-green-2 fs-3 rounded-0 responsive-button"
                         >
-                            Kosár ({count})
+                            <span className="color-black">Kosár ({count})</span>
                         </button>
                     </Link>
                 </div>

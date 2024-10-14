@@ -4,29 +4,15 @@
   }
 }
 
-.button-my-green{
-    background-color: #81f5FF;
-    font-size: 12px;
+.button-border-2{
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 
-.button-my-green-70 {
-  background-color: #81f5CC;
-  font-size: 12px;
-}
-
-.button-my-green-85 {
-  background-color: #81f500;
-  font-size: 12px;
-}
-
-.button-my-green:hover, .button-my-green-70:hover, .button-my-green-85:hover {
+.bg-gray:hover {
   background-color: lightgray;
 }
-
-.button-border-2{
-    border-bottom: 2px solid black;
-}
-
 
 .checked {
     color: orange;

@@ -1,6 +1,10 @@
 .header-my-green{
-    background-color: #81f5FF;
+    background-color: white;
   }
+
+.header-border{
+    border-bottom: 2px solid black;
+}
 
 .sticky {
     position: sticky;
@@ -10,13 +14,24 @@
   }
 
 .button-my-green-2{
-    background-color: #81f542;
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    border-bottom: 2px solid blue; /* Add a 4px solid red border at the bottom */
+    border-left: 2px solid blue;
+    border-right: 2px solid blue;
 }
 
-.border-bottom-custom {
+.border-x{
     border: none; /* Remove all borders */
-    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */
+    border-bottom: 2px solid black; /* Add a 4px solid red border at the bottom */
+    border-left: 2px solid black;
+    border-right: 2px solid black;
     border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */
+}
+
+.color-black:hover{
+    font-weight: bolder;
 }
 
 

@@ -58,7 +58,7 @@ function Pizzas() {
                 <div className="d-flex flex-wrap">
                     {/* Ár szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn button-my-green m-1 rounded-0 w-50 button-border-2">
+                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
                             Ár szerint növekvő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ function Pizzas() {
                                 />
                             </svg>
                         </button>
-                        <button className="btn button-my-green m-1 rounded-0 w-50 button-border-2">
+                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
                             Ár szerint csökkenő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ function Pizzas() {
 
                     {/* Név szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn button-my-green-85 m-1 rounded-0 w-50 button-border-2">
+                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
                             Név szerint növekvő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@ function Pizzas() {
                                 />
                             </svg>
                         </button>
-                        <button className="btn button-my-green-85 m-1 rounded-0 w-50 button-border-2">
+                        <button className="btn bg-white m-1 rounded-0 w-50 button-border-2">
                             Név szerint csökkenő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +130,7 @@ function Pizzas() {
 
                     {/* Népszerűség szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn button-my-green-70 m-1 rounded-0 w-50 button-border-2">
+                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
                             Népszerűség szerint növekvő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +146,7 @@ function Pizzas() {
                                 />
                             </svg>
                         </button>
-                        <button className="btn button-my-green-70 m-1 rounded-0 w-50 button-border-2">
+                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
                             Népszerűség szerint csökkenő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -184,7 +184,7 @@ function Pizzas() {
                             key={index}
                             className="row justify-content-center my-4"
                         >
-                            <div className="col-6 mx-auto">
+                            <div className="col-8 mx-auto">
                                 <div className="card">
                                     <div className="card-body">
                                         <img
