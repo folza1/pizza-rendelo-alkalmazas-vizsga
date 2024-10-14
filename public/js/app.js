@@ -14661,7 +14661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15223,7 +15223,6 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 function Pizzas() {
-  // useOutletContext használata a Layout-ból jövő state és setter eléréséhez
   var _useOutletContext = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useOutletContext)(),
     count = _useOutletContext.count,
     setCount = _useOutletContext.setCount;
@@ -15235,10 +15234,20 @@ function Pizzas() {
     _useState4 = _slicedToArray(_useState3, 2),
     loading = _useState4[0],
     setLoading = _useState4[1];
+
+  // Állapot a mennyiség tárolására
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState6 = _slicedToArray(_useState5, 2),
+    quantity = _useState6[0],
+    setQuantity = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("L"),
+    _useState8 = _slicedToArray(_useState7, 2),
+    size = _useState8[0],
+    setSize = _useState8[1]; // Alapértelmezett érték az L méret
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Axios hívás az API-ra
     axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/pizzas").then(function (response) {
-      // Az API válaszát az állapotba tesszük
       setPizzas(response.data);
       setLoading(false);
     })["catch"](function (error) {
@@ -15269,8 +15278,47 @@ function Pizzas() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {
       className: "my-5"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "col-6 my-3 mx-auto",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+        children: "Rendez\xE9s:"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "col-6 my-3 mx-auto",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "d-flex justify-content-between flex-wrap",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "btn btn-success m-1 rounded-0 w-100 w-md-auto",
+          children: "\xC1r szerint n\xF6vekv\u0151"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "btn btn-success m-1 rounded-0 w-100 w-md-auto",
+          children: "\xC1r szerint cs\xF6kken\u0151"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "btn btn-primary m-1 rounded-0 w-100 w-md-auto",
+          children: "N\xE9v szerint n\xF6vekv\u0151"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "btn btn-primary m-1 rounded-0 w-100 w-md-auto",
+          children: "N\xE9v szerint cs\xF6kken\u0151"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "btn btn-danger m-1 rounded-0 w-100 w-md-auto",
+          children: "N\xE9pszer\u0171s\xE9g szerint n\xF6vekv\u0151"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "btn btn-danger m-1 rounded-0 w-100 w-md-auto",
+          children: "N\xE9pszer\u0171s\xE9g szerint cs\xF6kken\u0151"
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "container",
       children: pizzas.map(function (pizza, index) {
+        // Összeg kiszámítása a méret alapján
+        var priceMultiplier = 1; // Alapértelmezett szorzó
+
+        if (size === "XL") {
+          priceMultiplier = 1.25; // XL méret esetén
+        } else if (size === "XXL") {
+          priceMultiplier = 1.5; // XXL méret esetén
+        }
+        var totalPrice = pizza.price * quantity * priceMultiplier; // Összeg kiszámítása
+
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "row justify-content-center mb-4",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -15305,15 +15353,12 @@ function Pizzas() {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
                         xmlns: "http://www.w3.org/2000/svg",
                         viewBox: "0 0 512 512",
-                        width: "24" // Állítsd be a kívánt szélességet (pl. 24px)
-                        ,
-                        height: "24" // Állítsd be a kívánt magasságot (pl. 24px)
-                        ,
+                        width: "24",
+                        height: "24",
                         style: {
                           marginRight: "8px",
                           verticalAlign: "middle"
-                        } // Kicsi távolság a szöveg előtt
-                        ,
+                        },
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
                           d: "M169.7 .9c-22.8-1.6-41.9 14-47.5 34.7L110.4 80c.5 0 1.1 0 1.6 0c176.7 0 320 143.3 320 320c0 .5 0 1.1 0 1.6l44.4-11.8c20.8-5.5 36.3-24.7 34.7-47.5C498.5 159.5 352.5 13.5 169.7 .9zM399.8 410.2c.1-3.4 .2-6.8 .2-10.2c0-159.1-128.9-288-288-288c-3.4 0-6.8 .1-10.2 .2L.5 491.9c-1.5 5.5 .1 11.4 4.1 15.4s9.9 5.6 15.4 4.1L399.8 410.2zM176 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm64 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM96 384a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"
                         })
@@ -15327,23 +15372,96 @@ function Pizzas() {
                       className: "fa fa-star ".concat(index < pizza.likes ? "checked" : ""),
                       style: {
                         fontSize: "3rem"
-                      } // Háromszoros méret
+                      }
                     }, index);
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                  className: "d-flex align-items-center mt-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                    className: "btn btn-warning fs-3 rounded-0 btn-lg border-black-2",
-                    children: "Kos\xE1rba"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                    type: "number",
-                    className: "form-control me-2 mx-2",
-                    min: "1",
-                    defaultValue: "1",
-                    style: {
-                      width: "70px",
-                      height: "60px"
-                    } // Magasság beállítása a gomb magasságával
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
+                    className: "my-3",
+                    children: ["\xD6sszesen: ", totalPrice, " Ft"]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                      className: "my-3",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+                        children: "V\xE1lassz m\xE9retet:"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                        className: "form-check",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                          type: "radio",
+                          id: "sizeL-".concat(index) // Egyedi ID az L mérethez
+                          ,
+                          name: "size-".concat(index) // Egyedi name a csoporthoz
+                          ,
+                          className: "form-check-input",
+                          value: "L",
+                          checked: size === "L",
+                          onChange: function onChange() {
+                            return setSize("L");
+                          }
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                          htmlFor: "sizeL-".concat(index),
+                          className: "form-check-label",
+                          children: "L"
+                        })]
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                        className: "form-check",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                          type: "radio",
+                          id: "sizeXL-".concat(index) // Egyedi ID az XL mérethez
+                          ,
+                          name: "size-".concat(index) // Egyedi name a csoporthoz
+                          ,
+                          className: "form-check-input",
+                          value: "XL",
+                          checked: size === "XL",
+                          onChange: function onChange() {
+                            return setSize("XL");
+                          }
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                          htmlFor: "sizeXL-".concat(index),
+                          className: "form-check-label",
+                          children: "XL"
+                        })]
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                        className: "form-check",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                          type: "radio",
+                          id: "sizeXXL-".concat(index) // Egyedi ID az XXL mérethez
+                          ,
+                          name: "size-".concat(index) // Egyedi name a csoporthoz
+                          ,
+                          className: "form-check-input",
+                          value: "XXL",
+                          checked: size === "XXL",
+                          onChange: function onChange() {
+                            return setSize("XXL");
+                          }
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                          htmlFor: "sizeXXL-".concat(index),
+                          className: "form-check-label",
+                          children: "XXL"
+                        })]
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                      className: "d-flex align-items-center mt-3",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                        type: "button",
+                        className: "btn btn-warning fs-3 rounded-0 btn-lg border-black-2",
+                        children: "Kos\xE1rba"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                        type: "number",
+                        className: "form-control me-2 mx-2",
+                        min: "1",
+                        value: quantity,
+                        onChange: function onChange(e) {
+                          return setQuantity(Number(e.target.value));
+                        },
+                        style: {
+                          width: "70px",
+                          height: "60px"
+                        }
+                      })]
+                    })]
                   })]
                 })]
               })

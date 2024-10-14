@@ -1,3 +1,10 @@
+@media (max-width: 777px) {
+  .btn {
+      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */
+  }
+}
+
+
 .checked {
     color: orange;
   }
