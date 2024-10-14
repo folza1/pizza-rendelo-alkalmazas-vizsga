@@ -14661,7 +14661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-border-2{\n  border-bottom: 1px solid black;\n  border-left: 1px solid black;\n  border-right: 1px solid black;\n}\n\n.bg-gray:hover {\n  background-color: lightgray;\n}\n\n.checked {\n    color: yellow;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-border-2{\n  border-bottom: 1px solid black;\n  border-left: 1px solid black;\n  border-right: 1px solid black;\n}\n\n.bg-gray:hover {\n  background-color: lightgray;\n}\n\n.checked {\n    color: gold;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
