@@ -15369,7 +15369,7 @@ function Pizzas() {
     });
   }
   var incrementCount = function incrementCount() {
-    setCount(count + 1);
+    setCount(count + quantity);
   };
   var handleAddToCart = function handleAddToCart(pizza) {
     addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel

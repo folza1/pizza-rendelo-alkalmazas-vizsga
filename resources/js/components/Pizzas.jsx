@@ -36,7 +36,7 @@ function Pizzas() {
     }
 
     const incrementCount = () => {
-        setCount(count + 1);
+        setCount(count + quantity);
     };
 
     const handleAddToCart = (pizza) => {
