@@ -3,8 +3,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./pizzas.css";
 
+import { useCart } from "./CartContext"; // Kosár context importálása
+
 function Pizzas() {
     const { count, setCount } = useOutletContext();
+    const { addToCart } = useCart(); // Kosár context használata
 
     const [pizzas, setPizzas] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,6 +37,11 @@ function Pizzas() {
 
     const incrementCount = () => {
         setCount(count + 1);
+    };
+
+    const handleAddToCart = (pizza) => {
+        addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel
+        incrementCount(); // Számláló frissítése
     };
 
     return (
@@ -228,6 +236,11 @@ function Pizzas() {
                                                     <button
                                                         type="button"
                                                         className="btn btn-warning fs-3 rounded-0 btn-lg border-black-2"
+                                                        onClick={() =>
+                                                            handleAddToCart(
+                                                                pizza
+                                                            )
+                                                        } // Hozzáadás a kosárhoz
                                                     >
                                                         Kosárba
                                                     </button>
