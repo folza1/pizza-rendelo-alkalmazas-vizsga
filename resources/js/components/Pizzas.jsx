@@ -42,7 +42,7 @@ function Pizzas() {
                 Növelés
             </button>
 
-            <div>
+            {/* <div>
                 <h1>Pizzák</h1>
                 {pizzas.map((pizza) => (
                     <div key={pizza.id}>
@@ -53,7 +53,6 @@ function Pizzas() {
                                 <h3>{pizza.id}</h3>
                                 <h4>{pizza.likes} Likes</h4>
 
-                                {/* Csillagok dinamikus osztályozása */}
                                 {[...Array(5)].map((_, index) => (
                                     <span
                                         key={index}
@@ -72,6 +71,62 @@ function Pizzas() {
                                 </ul>
                             </li>
                         </ul>
+                    </div>
+                ))}
+            </div> */}
+
+            <h1 className="text-center my-5">Kínálatunk</h1>
+
+            <hr className="my-5"></hr>
+
+            <div className="container">
+                {pizzas.map((pizza, index) => (
+                    <div
+                        key={index}
+                        className="row justify-content-center mb-4"
+                    >
+                        <div className="col-8 mx-auto">
+                            <div className="card">
+                                <div className="card-body">
+                                    <img
+                                        src={pizza.image}
+                                        alt={pizza.name}
+                                        className="img-fluid"
+                                        style={{
+                                            width: "100%",
+                                            height: "400px",
+                                            objectFit: "cover",
+                                        }}
+                                    />
+                                    <h2 className="card-title mt-3">
+                                        {pizza.name}
+                                    </h2>
+
+                                    <h6>Feltétek:</h6>
+                                    <ul>
+                                        {pizza.toppings.map((topping) => (
+                                            <li key={topping.id}>
+                                                {topping.name}
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <div className="text-center mt-3">
+                                        {[...Array(5)].map((_, index) => (
+                                            <span
+                                                key={index}
+                                                className={`fa fa-star ${
+                                                    index < pizza.likes
+                                                        ? "checked"
+                                                        : ""
+                                                }`}
+                                                style={{ fontSize: "3rem" }} // Háromszoros méret
+                                            ></span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>
