@@ -58,31 +58,109 @@ function Pizzas() {
                 <div className="d-flex flex-wrap">
                     {/* Ár szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn button-my-green m-1 rounded-0 w-50">
+                        <button className="btn button-my-green m-1 rounded-0 w-50 button-border-2">
                             Ár szerint növekvő
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-arrow-up ml-1"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M8 12a.5.5 0 0 0 .5-.5V4.707l3.147 3.146a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 4.707V11.5A.5.5 0 0 0 8 12z"
+                                />
+                            </svg>
                         </button>
-                        <button className="btn button-my-green m-1 rounded-0 w-50">
+                        <button className="btn button-my-green m-1 rounded-0 w-50 button-border-2">
                             Ár szerint csökkenő
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-arrow-down ml-1"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M8 4a.5.5 0 0 1 .5.5v6.293l3.147-3.146a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 10.793V4.5A.5.5 0 0 1 8 4z"
+                                />
+                            </svg>
                         </button>
                     </div>
 
                     {/* Név szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn button-my-green-85 m-1 rounded-0 w-50">
+                        <button className="btn button-my-green-85 m-1 rounded-0 w-50 button-border-2">
                             Név szerint növekvő
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-arrow-up ml-1"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M8 12a.5.5 0 0 0 .5-.5V4.707l3.147 3.146a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 4.707V11.5A.5.5 0 0 0 8 12z"
+                                />
+                            </svg>
                         </button>
-                        <button className="btn button-my-green-85 m-1 rounded-0 w-50">
+                        <button className="btn button-my-green-85 m-1 rounded-0 w-50 button-border-2">
                             Név szerint csökkenő
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-arrow-down ml-1"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M8 4a.5.5 0 0 1 .5.5v6.293l3.147-3.146a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 10.793V4.5A.5.5 0 0 1 8 4z"
+                                />
+                            </svg>
                         </button>
                     </div>
 
                     {/* Népszerűség szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn button-my-green-70 m-1 rounded-0 w-50">
+                        <button className="btn button-my-green-70 m-1 rounded-0 w-50 button-border-2">
                             Népszerűség szerint növekvő
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-arrow-up ml-1"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M8 12a.5.5 0 0 0 .5-.5V4.707l3.147 3.146a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 4.707V11.5A.5.5 0 0 0 8 12z"
+                                />
+                            </svg>
                         </button>
-                        <button className="btn button-my-green-70 m-1 rounded-0 w-50">
+                        <button className="btn button-my-green-70 m-1 rounded-0 w-50 button-border-2">
                             Népszerűség szerint csökkenő
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-arrow-down ml-1"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M8 4a.5.5 0 0 1 .5.5v6.293l3.147-3.146a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 10.793V4.5A.5.5 0 0 1 8 4z"
+                                />
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -106,7 +184,7 @@ function Pizzas() {
                             key={index}
                             className="row justify-content-center my-4"
                         >
-                            <div className="col-8 mx-auto">
+                            <div className="col-6 mx-auto">
                                 <div className="card">
                                     <div className="card-body">
                                         <img

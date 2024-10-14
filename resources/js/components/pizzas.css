@@ -23,6 +23,10 @@
   background-color: lightgray;
 }
 
+.button-border-2{
+    border-bottom: 2px solid black;
+}
+
 
 .checked {
     color: orange;

@@ -14661,7 +14661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-my-green{\n    background-color: #81f5FF;\n    font-size: 12px;\n}\n\n.button-my-green-70 {\n  background-color: #81f5CC;\n  font-size: 12px;\n}\n\n.button-my-green-85 {\n  background-color: #81f500;\n  font-size: 12px;\n}\n\n.button-my-green:hover, .button-my-green-70:hover, .button-my-green-85:hover {\n  background-color: lightgray;\n}\n\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-my-green{\n    background-color: #81f5FF;\n    font-size: 12px;\n}\n\n.button-my-green-70 {\n  background-color: #81f5CC;\n  font-size: 12px;\n}\n\n.button-my-green-85 {\n  background-color: #81f500;\n  font-size: 12px;\n}\n\n.button-my-green:hover, .button-my-green-70:hover, .button-my-green-85:hover {\n  background-color: lightgray;\n}\n\n.button-border-2{\n    border-bottom: 2px solid black;\n}\n\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15393,30 +15393,96 @@ function Pizzas() {
         className: "d-flex flex-wrap",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "d-flex flex-row w-100",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "btn button-my-green m-1 rounded-0 w-50",
-            children: "\xC1r szerint n\xF6vekv\u0151"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "btn button-my-green m-1 rounded-0 w-50",
-            children: "\xC1r szerint cs\xF6kken\u0151"
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            className: "btn button-my-green m-1 rounded-0 w-50 button-border-2",
+            children: ["\xC1r szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "16",
+              height: "16",
+              fill: "currentColor",
+              className: "bi bi-arrow-up ml-1",
+              viewBox: "0 0 16 16",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                fillRule: "evenodd",
+                d: "M8 12a.5.5 0 0 0 .5-.5V4.707l3.147 3.146a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 4.707V11.5A.5.5 0 0 0 8 12z"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            className: "btn button-my-green m-1 rounded-0 w-50 button-border-2",
+            children: ["\xC1r szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "16",
+              height: "16",
+              fill: "currentColor",
+              className: "bi bi-arrow-down ml-1",
+              viewBox: "0 0 16 16",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                fillRule: "evenodd",
+                d: "M8 4a.5.5 0 0 1 .5.5v6.293l3.147-3.146a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 10.793V4.5A.5.5 0 0 1 8 4z"
+              })
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "d-flex flex-row w-100",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "btn button-my-green-85 m-1 rounded-0 w-50",
-            children: "N\xE9v szerint n\xF6vekv\u0151"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "btn button-my-green-85 m-1 rounded-0 w-50",
-            children: "N\xE9v szerint cs\xF6kken\u0151"
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            className: "btn button-my-green-85 m-1 rounded-0 w-50 button-border-2",
+            children: ["N\xE9v szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "16",
+              height: "16",
+              fill: "currentColor",
+              className: "bi bi-arrow-up ml-1",
+              viewBox: "0 0 16 16",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                fillRule: "evenodd",
+                d: "M8 12a.5.5 0 0 0 .5-.5V4.707l3.147 3.146a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 4.707V11.5A.5.5 0 0 0 8 12z"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            className: "btn button-my-green-85 m-1 rounded-0 w-50 button-border-2",
+            children: ["N\xE9v szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "16",
+              height: "16",
+              fill: "currentColor",
+              className: "bi bi-arrow-down ml-1",
+              viewBox: "0 0 16 16",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                fillRule: "evenodd",
+                d: "M8 4a.5.5 0 0 1 .5.5v6.293l3.147-3.146a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 10.793V4.5A.5.5 0 0 1 8 4z"
+              })
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "d-flex flex-row w-100",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "btn button-my-green-70 m-1 rounded-0 w-50",
-            children: "N\xE9pszer\u0171s\xE9g szerint n\xF6vekv\u0151"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "btn button-my-green-70 m-1 rounded-0 w-50",
-            children: "N\xE9pszer\u0171s\xE9g szerint cs\xF6kken\u0151"
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            className: "btn button-my-green-70 m-1 rounded-0 w-50 button-border-2",
+            children: ["N\xE9pszer\u0171s\xE9g szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "16",
+              height: "16",
+              fill: "currentColor",
+              className: "bi bi-arrow-up ml-1",
+              viewBox: "0 0 16 16",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                fillRule: "evenodd",
+                d: "M8 12a.5.5 0 0 0 .5-.5V4.707l3.147 3.146a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 4.707V11.5A.5.5 0 0 0 8 12z"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            className: "btn button-my-green-70 m-1 rounded-0 w-50 button-border-2",
+            children: ["N\xE9pszer\u0171s\xE9g szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "16",
+              height: "16",
+              fill: "currentColor",
+              className: "bi bi-arrow-down ml-1",
+              viewBox: "0 0 16 16",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                fillRule: "evenodd",
+                d: "M8 4a.5.5 0 0 1 .5.5v6.293l3.147-3.146a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 10.793V4.5A.5.5 0 0 1 8 4z"
+              })
+            })]
           })]
         })]
       })
@@ -15436,7 +15502,7 @@ function Pizzas() {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "row justify-content-center my-4",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "col-8 mx-auto",
+            className: "col-6 mx-auto",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "card",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
