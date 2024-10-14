@@ -47,12 +47,6 @@ function Pizzas() {
 
     return (
         <>
-            <h1>Pizzák</h1>
-            <p>Aktuális szám: {count}</p>
-            <button onClick={incrementCount} className="btn btn-primary">
-                Növelés
-            </button>
-
             <h1 className="text-center my-5">Kínálatunk</h1>
             <hr className="my-5" />
 
@@ -61,25 +55,36 @@ function Pizzas() {
             </div>
 
             <div className="col-6 my-3 mx-auto">
-                <div className="d-flex justify-content-between flex-wrap">
-                    <button className="btn btn-success m-1 rounded-0 w-100 w-md-auto">
-                        Ár szerint növekvő
-                    </button>
-                    <button className="btn btn-success m-1 rounded-0 w-100 w-md-auto">
-                        Ár szerint csökkenő
-                    </button>
-                    <button className="btn btn-primary m-1 rounded-0 w-100 w-md-auto">
-                        Név szerint növekvő
-                    </button>
-                    <button className="btn btn-primary m-1 rounded-0 w-100 w-md-auto">
-                        Név szerint csökkenő
-                    </button>
-                    <button className="btn btn-danger m-1 rounded-0 w-100 w-md-auto">
-                        Népszerűség szerint növekvő
-                    </button>
-                    <button className="btn btn-danger m-1 rounded-0 w-100 w-md-auto">
-                        Népszerűség szerint csökkenő
-                    </button>
+                <div className="d-flex flex-wrap">
+                    {/* Ár szerint gombok */}
+                    <div className="d-flex flex-row w-100">
+                        <button className="btn button-my-green m-1 rounded-0 w-50">
+                            Ár szerint növekvő
+                        </button>
+                        <button className="btn button-my-green m-1 rounded-0 w-50">
+                            Ár szerint csökkenő
+                        </button>
+                    </div>
+
+                    {/* Név szerint gombok */}
+                    <div className="d-flex flex-row w-100">
+                        <button className="btn button-my-green-85 m-1 rounded-0 w-50">
+                            Név szerint növekvő
+                        </button>
+                        <button className="btn button-my-green-85 m-1 rounded-0 w-50">
+                            Név szerint csökkenő
+                        </button>
+                    </div>
+
+                    {/* Népszerűség szerint gombok */}
+                    <div className="d-flex flex-row w-100">
+                        <button className="btn button-my-green-70 m-1 rounded-0 w-50">
+                            Népszerűség szerint növekvő
+                        </button>
+                        <button className="btn button-my-green-70 m-1 rounded-0 w-50">
+                            Népszerűség szerint csökkenő
+                        </button>
+                    </div>
                 </div>
             </div>
 

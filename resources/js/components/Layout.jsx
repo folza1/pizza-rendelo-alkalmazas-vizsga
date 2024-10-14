@@ -41,7 +41,7 @@ function Layout() {
                     <Link to="/cart" className="mb-2 mb-md-0">
                         <button
                             type="button"
-                            className="btn btn-warning fs-3 rounded-0 responsive-button border-bottom-custom"
+                            className="btn button-my-green fs-3 rounded-0 responsive-button border-bottom-custom"
                         >
                             Kosár ({count})
                         </button>

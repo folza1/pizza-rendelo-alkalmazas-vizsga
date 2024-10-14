@@ -5,6 +5,10 @@
     background-color: white;
   }
 
+.button-my-green{
+    background-color: #81f542;
+}
+
 .border-bottom-custom {
     border: none; /* Remove all borders */
     border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */

@@ -14637,7 +14637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sticky {\n    position: sticky;\n    top: 0;\n    z-index: 1000;\n    background-color: white;\n  }\n\n.border-bottom-custom {\n    border: none; /* Remove all borders */\n    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sticky {\n    position: sticky;\n    top: 0;\n    z-index: 1000;\n    background-color: white;\n  }\n\n.button-my-green{\n    background-color: #81f542;\n}\n\n.border-bottom-custom {\n    border: none; /* Remove all borders */\n    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14661,7 +14661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-my-green{\n    background-color: #81f5FF;\n}\n\n.button-my-green:hover, .button-my-green-70:hover, .button-my-green-85:hover {\n    background-color: lightgray;\n}\n\n.button-my-green-70 {\n  background-color: #81f5CC;\n}\n\n.button-my-green-85 {\n  background-color: #81f500;\n}\n\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15236,7 +15236,7 @@ function Layout() {
           className: "mb-2 mb-md-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
             type: "button",
-            className: "btn btn-warning fs-3 rounded-0 responsive-button border-bottom-custom",
+            className: "btn button-my-green fs-3 rounded-0 responsive-button border-bottom-custom",
             children: ["Kos\xE1r (", count, ")"]
           })
         })]
@@ -15378,14 +15378,6 @@ function Pizzas() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
-      children: "Pizz\xE1k"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-      children: ["Aktu\xE1lis sz\xE1m: ", count]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-      onClick: incrementCount,
-      className: "btn btn-primary",
-      children: "N\xF6vel\xE9s"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
       className: "text-center my-5",
       children: "K\xEDn\xE1latunk"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {
@@ -15398,25 +15390,34 @@ function Pizzas() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "col-6 my-3 mx-auto",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "d-flex justify-content-between flex-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "btn btn-success m-1 rounded-0 w-100 w-md-auto",
-          children: "\xC1r szerint n\xF6vekv\u0151"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "btn btn-success m-1 rounded-0 w-100 w-md-auto",
-          children: "\xC1r szerint cs\xF6kken\u0151"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "btn btn-primary m-1 rounded-0 w-100 w-md-auto",
-          children: "N\xE9v szerint n\xF6vekv\u0151"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "btn btn-primary m-1 rounded-0 w-100 w-md-auto",
-          children: "N\xE9v szerint cs\xF6kken\u0151"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "btn btn-danger m-1 rounded-0 w-100 w-md-auto",
-          children: "N\xE9pszer\u0171s\xE9g szerint n\xF6vekv\u0151"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "btn btn-danger m-1 rounded-0 w-100 w-md-auto",
-          children: "N\xE9pszer\u0171s\xE9g szerint cs\xF6kken\u0151"
+        className: "d-flex flex-wrap",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "d-flex flex-row w-100",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "btn button-my-green m-1 rounded-0 w-50",
+            children: "\xC1r szerint n\xF6vekv\u0151"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "btn button-my-green m-1 rounded-0 w-50",
+            children: "\xC1r szerint cs\xF6kken\u0151"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "d-flex flex-row w-100",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "btn button-my-green-85 m-1 rounded-0 w-50",
+            children: "N\xE9v szerint n\xF6vekv\u0151"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "btn button-my-green-85 m-1 rounded-0 w-50",
+            children: "N\xE9v szerint cs\xF6kken\u0151"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "d-flex flex-row w-100",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "btn button-my-green-70 m-1 rounded-0 w-50",
+            children: "N\xE9pszer\u0171s\xE9g szerint n\xF6vekv\u0151"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "btn button-my-green-70 m-1 rounded-0 w-50",
+            children: "N\xE9pszer\u0171s\xE9g szerint cs\xF6kken\u0151"
+          })]
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
