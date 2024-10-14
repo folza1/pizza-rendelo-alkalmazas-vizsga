@@ -14661,7 +14661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".checked {\n    color: orange;\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15142,6 +15142,12 @@ function Layout() {
         count: count,
         setCount: setCount
       }
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "mt-5",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        className: "text-center",
+        children: "\xA9 2023 Pizzari\xE1nk"
+      })
     })]
   });
 }
@@ -15284,12 +15290,33 @@ function Pizzas() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
                   className: "card-title mt-3",
                   children: pizza.name
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+                  className: "my-3",
                   children: "Felt\xE9tek:"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+                  className: "list-unstyled",
                   children: pizza.toppings.map(function (topping) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-                      children: topping.name
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+                      style: {
+                        display: "flex",
+                        alignItems: "center"
+                      },
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 512 512",
+                        width: "24" // Állítsd be a kívánt szélességet (pl. 24px)
+                        ,
+                        height: "24" // Állítsd be a kívánt magasságot (pl. 24px)
+                        ,
+                        style: {
+                          marginRight: "8px",
+                          verticalAlign: "middle"
+                        } // Kicsi távolság a szöveg előtt
+                        ,
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                          d: "M169.7 .9c-22.8-1.6-41.9 14-47.5 34.7L110.4 80c.5 0 1.1 0 1.6 0c176.7 0 320 143.3 320 320c0 .5 0 1.1 0 1.6l44.4-11.8c20.8-5.5 36.3-24.7 34.7-47.5C498.5 159.5 352.5 13.5 169.7 .9zM399.8 410.2c.1-3.4 .2-6.8 .2-10.2c0-159.1-128.9-288-288-288c-3.4 0-6.8 .1-10.2 .2L.5 491.9c-1.5 5.5 .1 11.4 4.1 15.4s9.9 5.6 15.4 4.1L399.8 410.2zM176 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm64 128a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM96 384a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"
+                        })
+                      }), topping.name]
                     }, topping.id);
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -15302,6 +15329,9 @@ function Pizzas() {
                       } // Háromszoros méret
                     }, index);
                   })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                  className: "btn btn-warning fs-3 rounded-0 btn-lg mt-3 border-black-2",
+                  children: "Kos\xE1rba"
                 })]
               })
             })

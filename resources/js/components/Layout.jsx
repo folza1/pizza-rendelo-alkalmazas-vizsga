@@ -50,6 +50,10 @@ function Layout() {
             </div>
 
             <Outlet context={{ count, setCount }} />
+
+            <div className="mt-5">
+                <p className="text-center">© 2023 Pizzariánk</p>
+            </div>
         </>
     );
 }
