@@ -51,7 +51,7 @@ function Pizzas() {
             <hr className="my-5" />
 
             <div className="col-6 my-3 mx-auto">
-                <h4>Rendezés:</h4>
+                <h4>Pizzák rendezése:</h4>
             </div>
 
             <div className="col-6 my-3 mx-auto">
@@ -104,7 +104,7 @@ function Pizzas() {
                     return (
                         <div
                             key={index}
-                            className="row justify-content-center mb-4"
+                            className="row justify-content-center my-4"
                         >
                             <div className="col-8 mx-auto">
                                 <div className="card">

@@ -10,7 +10,7 @@ function Layout() {
         <>
             <div className="sticky">
                 {/* Rács a gombokhoz, sticky beállítások */}
-                <div className="border d-flex flex-column flex-md-row justify-content-md-end">
+                <div className="border d-flex flex-column flex-md-row justify-content-md-end header-my-green">
                     <Link to="/" className="mb-2 mb-md-0 me-md-2">
                         <button
                             type="button"
@@ -41,7 +41,7 @@ function Layout() {
                     <Link to="/cart" className="mb-2 mb-md-0">
                         <button
                             type="button"
-                            className="btn button-my-green fs-3 rounded-0 responsive-button border-bottom-custom"
+                            className="btn button-my-green-2 fs-3 rounded-0 responsive-button border-bottom-custom"
                         >
                             Kosár ({count})
                         </button>

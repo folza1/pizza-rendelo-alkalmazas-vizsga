@@ -1,3 +1,7 @@
+.header-my-green{
+    background-color: #81f5FF;
+  }
+
 .sticky {
     position: sticky;
     top: 0;
@@ -5,7 +9,7 @@
     background-color: white;
   }
 
-.button-my-green{
+.button-my-green-2{
     background-color: #81f542;
 }
 

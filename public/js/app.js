@@ -14637,7 +14637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sticky {\n    position: sticky;\n    top: 0;\n    z-index: 1000;\n    background-color: white;\n  }\n\n.button-my-green{\n    background-color: #81f542;\n}\n\n.border-bottom-custom {\n    border: none; /* Remove all borders */\n    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header-my-green{\n    background-color: #81f5FF;\n  }\n\n.sticky {\n    position: sticky;\n    top: 0;\n    z-index: 1000;\n    background-color: white;\n  }\n\n.button-my-green-2{\n    background-color: #81f542;\n}\n\n.border-bottom-custom {\n    border: none; /* Remove all borders */\n    border-bottom: 4px solid black; /* Add a 4px solid red border at the bottom */\n    border-radius: 0; /* Optional: Remove border-radius if you want sharp corners */\n}\n\n\n/* Csak sm méret alatt */\n@media (max-width: 770px) {\n    .responsive-button {\n        width: 100%;\n    }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14661,7 +14661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-my-green{\n    background-color: #81f5FF;\n}\n\n.button-my-green:hover, .button-my-green-70:hover, .button-my-green-85:hover {\n    background-color: lightgray;\n}\n\n.button-my-green-70 {\n  background-color: #81f5CC;\n}\n\n.button-my-green-85 {\n  background-color: #81f500;\n}\n\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 777px) {\n  .btn {\n      width: 100%; /* A gombok szélessége 100% lesz 777px alatt */\n  }\n}\n\n.button-my-green{\n    background-color: #81f5FF;\n    font-size: 12px;\n}\n\n.button-my-green-70 {\n  background-color: #81f5CC;\n  font-size: 12px;\n}\n\n.button-my-green-85 {\n  background-color: #81f500;\n  font-size: 12px;\n}\n\n.button-my-green:hover, .button-my-green-70:hover, .button-my-green-85:hover {\n  background-color: lightgray;\n}\n\n\n.checked {\n    color: orange;\n  }\n\n.border-black-2{\n    border: 2px solid black; \n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14906,7 +14906,7 @@ function Cart() {
           // Részösszeg hozzáadása az összesített összeghez
           totalAmount += adjustedPrice * item.quantity;
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            children: [item.name, " - ", item.size, " - ", item.quantity, " ", "db -", adjustedPrice.toFixed(2), " Ft / db - R\xE9sz\xF6sszeg:", " ", (adjustedPrice * item.quantity).toFixed(2), " ", "Ft"]
+            children: [item.name, " - ", item.size, " - ", item.quantity, " ", "db - ", adjustedPrice.toFixed(2), " Ft / db - R\xE9sz\xF6sszeg:", " ", (adjustedPrice * item.quantity).toFixed(2), " ", "Ft"]
           }, index);
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
@@ -15206,7 +15206,7 @@ function Layout() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "sticky",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "border d-flex flex-column flex-md-row justify-content-md-end",
+        className: "border d-flex flex-column flex-md-row justify-content-md-end header-my-green",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
           to: "/",
           className: "mb-2 mb-md-0 me-md-2",
@@ -15236,7 +15236,7 @@ function Layout() {
           className: "mb-2 mb-md-0",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
             type: "button",
-            className: "btn button-my-green fs-3 rounded-0 responsive-button border-bottom-custom",
+            className: "btn button-my-green-2 fs-3 rounded-0 responsive-button border-bottom-custom",
             children: ["Kos\xE1r (", count, ")"]
           })
         })]
@@ -15385,7 +15385,7 @@ function Pizzas() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "col-6 my-3 mx-auto",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-        children: "Rendez\xE9s:"
+        children: "Pizz\xE1k rendez\xE9se:"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "col-6 my-3 mx-auto",
@@ -15434,7 +15434,7 @@ function Pizzas() {
         var totalPrice = pizza.price * quantity * priceMultiplier; // Összeg kiszámítása
 
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "row justify-content-center mb-4",
+          className: "row justify-content-center my-4",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "col-8 mx-auto",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {

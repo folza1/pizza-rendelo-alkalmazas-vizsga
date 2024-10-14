@@ -39,7 +39,7 @@ function Cart() {
                             return (
                                 <li key={index}>
                                     {item.name} - {item.size} - {item.quantity}{" "}
-                                    db -{adjustedPrice.toFixed(2)} Ft / db -
+                                    db - {adjustedPrice.toFixed(2)} Ft / db -
                                     Részösszeg:{" "}
                                     {(adjustedPrice * item.quantity).toFixed(2)}{" "}
                                     Ft
