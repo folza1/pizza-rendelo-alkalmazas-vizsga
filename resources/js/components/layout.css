@@ -17,9 +17,9 @@
     background-color: black;
     color: white;
     font-weight: bolder;
-    border-bottom: 2px solid blue; /* Add a 4px solid red border at the bottom */
-    border-left: 2px solid blue;
-    border-right: 2px solid blue;
+    border-bottom: 2px solid orange; /* Add a 4px solid red border at the bottom */
+    border-left: 2px solid orange;
+    border-right: 2px solid orange;
 }
 
 .border-x{
