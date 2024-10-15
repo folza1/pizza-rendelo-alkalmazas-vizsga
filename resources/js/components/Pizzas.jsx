@@ -25,6 +25,11 @@ function Pizzas() {
     const [currentPage, setCurrentPage] = useState(1);
     const [pizzasPerPage] = useState(3);
 
+    const [selectedPizza, setSelectedPizza] = useState(null); // Az aktuálisan kiválasztott pizza
+    const [showModal, setShowModal] = useState(false); // A modal megjelenítéséhez
+
+    const [modalQuantity, setModalQuantity] = useState(quantity); // New state for modal quantity
+
     const indexOfLastPizza = currentPage * pizzasPerPage;
     const indexOfFirstPizza = indexOfLastPizza - pizzasPerPage;
     const currentPizzas = filteredPizzas.slice(
@@ -111,7 +116,14 @@ function Pizzas() {
     const handleAddToCart = (pizza) => {
         addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel
         incrementCount(); // Számláló frissítése
+        setModalQuantity(quantity); // Store current quantity for modal
         setQuantity(1);
+        setSelectedPizza(pizza); // Az aktuális pizzát beállítjuk
+        setShowModal(true); // Megjelenítjük a modalt
+    };
+
+    const closeModal = () => {
+        setShowModal(false); // Bezárjuk a modalt
     };
 
     return (
@@ -477,6 +489,47 @@ function Pizzas() {
                         )
                     )}
                 </div>
+                {showModal && (
+                    <div
+                        className="modal fade show"
+                        style={{ display: "block" }}
+                        tabIndex="-1"
+                        role="dialog"
+                    >
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">
+                                        Kosárba helyezve
+                                    </h5>
+                                </div>
+                                <div className="modal-body">
+                                    <p>
+                                        Pizza:{" "}
+                                        <strong>{selectedPizza?.name}</strong>
+                                    </p>
+                                    <p>
+                                        Méret: <strong>{size}</strong>
+                                    </p>
+                                    <p>
+                                        Mennyiség:{" "}
+                                        <strong>{modalQuantity}</strong>{" "}
+                                        {/* Use modalQuantity */}
+                                    </p>
+                                </div>
+                                <div className="modal-footer">
+                                    <button
+                                        type="button"
+                                        className="btn btn-secondary"
+                                        onClick={closeModal}
+                                    >
+                                        Bezárás
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </>
     );

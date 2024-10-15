@@ -15253,7 +15253,7 @@ function Layout() {
       className: "mt-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
         className: "text-center",
-        children: "\xA9 2023 Pizzari\xE1nk"
+        children: "\xA9 2023 Pizz\xE9ri\xE1nk"
       })
     })]
   });
@@ -15377,6 +15377,20 @@ function Pizzas() {
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(3),
     _useState18 = _slicedToArray(_useState17, 1),
     pizzasPerPage = _useState18[0];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState20 = _slicedToArray(_useState19, 2),
+    selectedPizza = _useState20[0],
+    setSelectedPizza = _useState20[1]; // Az aktuálisan kiválasztott pizza
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState22 = _slicedToArray(_useState21, 2),
+    showModal = _useState22[0],
+    setShowModal = _useState22[1]; // A modal megjelenítéséhez
+
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(quantity),
+    _useState24 = _slicedToArray(_useState23, 2),
+    modalQuantity = _useState24[0],
+    setModalQuantity = _useState24[1]; // New state for modal quantity
+
   var indexOfLastPizza = currentPage * pizzasPerPage;
   var indexOfFirstPizza = indexOfLastPizza - pizzasPerPage;
   var currentPizzas = filteredPizzas.slice(indexOfFirstPizza, indexOfLastPizza);
@@ -15458,7 +15472,13 @@ function Pizzas() {
   var handleAddToCart = function handleAddToCart(pizza) {
     addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel
     incrementCount(); // Számláló frissítése
+    setModalQuantity(quantity); // Store current quantity for modal
     setQuantity(1);
+    setSelectedPizza(pizza); // Az aktuális pizzát beállítjuk
+    setShowModal(true); // Megjelenítjük a modalt
+  };
+  var closeModal = function closeModal() {
+    setShowModal(false); // Bezárjuk a modalt
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
@@ -15776,6 +15796,50 @@ function Pizzas() {
             ,
             children: index + 1
           }, index + 1);
+        })
+      }), showModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "modal fade show",
+        style: {
+          display: "block"
+        },
+        tabIndex: "-1",
+        role: "dialog",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "modal-dialog",
+          role: "document",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "modal-content",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "modal-header",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+                className: "modal-title",
+                children: "Kos\xE1rba helyezve"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "modal-body",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+                children: ["Pizza:", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: selectedPizza === null || selectedPizza === void 0 ? void 0 : selectedPizza.name
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+                children: ["M\xE9ret: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: size
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+                children: ["Mennyis\xE9g:", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: modalQuantity
+                }), " "]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "modal-footer",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                type: "button",
+                className: "btn btn-secondary",
+                onClick: closeModal,
+                children: "Bez\xE1r\xE1s"
+              })
+            })]
+          })
         })
       })]
     })]
