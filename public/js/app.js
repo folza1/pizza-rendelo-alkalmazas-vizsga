@@ -14880,38 +14880,66 @@ function Cart() {
   // Részösszegek összegének inicializálása
   var totalAmount = 0;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-      children: "Kos\xE1r"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
-      children: ["Pizz\xE1k sz\xE1ma a kos\xE1rban: ", count]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "container mt-4 text-center",
+      children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
         children: "Kos\xE1r"
-      }), cartItems.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: "A kos\xE1r \xFCres."
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-        children: cartItems.map(function (item, index) {
-          // Alapár, számra konvertálva
-          var basePrice = Number(item.price); // Győződj meg róla, hogy szám
-
-          // Árkalkuláció a méret alapján
-          var adjustedPrice = basePrice; // Alapár
-
-          if (item.size === "XL") {
-            adjustedPrice *= 1.25; // XL méret esetén
-          } else if (item.size === "XXL") {
-            adjustedPrice *= 1.5; // XXL méret esetén
-          }
-
-          // Részösszeg hozzáadása az összesített összeghez
-          totalAmount += adjustedPrice * item.quantity;
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            children: [item.name, " - ", item.size, " - ", item.quantity, " ", "db - ", adjustedPrice.toFixed(2), " Ft / db - R\xE9sz\xF6sszeg:", " ", (adjustedPrice * item.quantity).toFixed(2), " ", "Ft"]
-          }, index);
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
-        children: ["\xD6sszesen: ", totalAmount.toFixed(2), " Ft"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+        children: ["Pizz\xE1k sz\xE1ma a kos\xE1rban: ", count]
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "container mt-4",
+      children: cartItems.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "alert alert-primary",
+        role: "alert",
+        children: "A kos\xE1r \xFCres."
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+          className: "list-group",
+          children: cartItems.map(function (item, index) {
+            // Alapár, számra konvertálva
+            var basePrice = Number(item.price); // Győződj meg róla, hogy szám
+
+            // Árkalkuláció a méret alapján
+            var adjustedPrice = basePrice; // Alapár
+
+            if (item.size === "XL") {
+              adjustedPrice *= 1.25; // XL méret esetén
+            } else if (item.size === "XXL") {
+              adjustedPrice *= 1.5; // XXL méret esetén
+            }
+
+            // Részösszeg hozzáadása az összesített összeghez
+            totalAmount += adjustedPrice * item.quantity;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+              className: "list-group-item d-flex justify-content-between align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
+                  className: "mb-1",
+                  children: item.name
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+                  className: "mb-1",
+                  children: ["M\xE9ret: ", item.size]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+                  className: "mb-1",
+                  children: ["Mennyis\xE9g: ", item.quantity, " db"]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+                  className: "mb-1",
+                  children: ["\xC1r: ", adjustedPrice.toFixed(2), " ", "Ft / db"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+                  className: "mb-1",
+                  children: ["R\xE9sz\xF6sszeg:", " ", (adjustedPrice * item.quantity).toFixed(2), " ", "Ft"]
+                })]
+              })]
+            }, index);
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
+          className: "mt-4",
+          children: ["\xD6sszesen: ", Math.round(totalAmount), " Ft"]
+        })]
+      })
     })]
   });
 }
