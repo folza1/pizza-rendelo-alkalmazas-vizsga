@@ -15370,6 +15370,16 @@ function Pizzas() {
     filteredPizzas = _useState14[0],
     setFilteredPizzas = _useState14[1]; // Szűrt pizzák tárolása
 
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState16 = _slicedToArray(_useState15, 2),
+    currentPage = _useState16[0],
+    setCurrentPage = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(3),
+    _useState18 = _slicedToArray(_useState17, 1),
+    pizzasPerPage = _useState18[0];
+  var indexOfLastPizza = currentPage * pizzasPerPage;
+  var indexOfFirstPizza = indexOfLastPizza - pizzasPerPage;
+  var currentPizzas = filteredPizzas.slice(indexOfFirstPizza, indexOfLastPizza);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Axios hívás az API-ra
     axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/pizzas").then(function (response) {
@@ -15586,9 +15596,9 @@ function Pizzas() {
           })]
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "container",
-      children: filteredPizzas.map(function (pizza, index) {
+      children: [currentPizzas.map(function (pizza, index) {
         // Összeg kiszámítása a méret alapján
         var priceMultiplier = 1; // Alapértelmezett szorzó
 
@@ -15752,7 +15762,22 @@ function Pizzas() {
             })
           })
         }, index);
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "pagination d-flex justify-content-center my-3",
+        children: Array.from({
+          length: Math.ceil(filteredPizzas.length / pizzasPerPage)
+        }, function (_, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            onClick: function onClick() {
+              return setCurrentPage(index + 1);
+            },
+            disabled: currentPage === index + 1,
+            className: "btn btn-warning mx-1" // vagy bármilyen más gombstílus
+            ,
+            children: index + 1
+          }, index + 1);
+        })
+      })]
     })]
   });
 }

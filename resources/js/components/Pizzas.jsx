@@ -22,6 +22,16 @@ function Pizzas() {
     const [searchTerm, setSearchTerm] = useState(""); // Keresés kifejezés tárolása
     const [filteredPizzas, setFilteredPizzas] = useState([]); // Szűrt pizzák tárolása
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pizzasPerPage] = useState(3);
+
+    const indexOfLastPizza = currentPage * pizzasPerPage;
+    const indexOfFirstPizza = indexOfLastPizza - pizzasPerPage;
+    const currentPizzas = filteredPizzas.slice(
+        indexOfFirstPizza,
+        indexOfLastPizza
+    );
+
     useEffect(() => {
         // Axios hívás az API-ra
         axios
@@ -260,7 +270,7 @@ function Pizzas() {
             </div>
 
             <div className="container">
-                {filteredPizzas.map((pizza, index) => {
+                {currentPizzas.map((pizza, index) => {
                     // Összeg kiszámítása a méret alapján
                     let priceMultiplier = 1; // Alapértelmezett szorzó
 
@@ -448,6 +458,25 @@ function Pizzas() {
                         </div>
                     );
                 })}
+                <div className="pagination d-flex justify-content-center my-3">
+                    {Array.from(
+                        {
+                            length: Math.ceil(
+                                filteredPizzas.length / pizzasPerPage
+                            ),
+                        },
+                        (_, index) => (
+                            <button
+                                key={index + 1}
+                                onClick={() => setCurrentPage(index + 1)}
+                                disabled={currentPage === index + 1}
+                                className="btn btn-warning mx-1" // vagy bármilyen más gombstílus
+                            >
+                                {index + 1}
+                            </button>
+                        )
+                    )}
+                </div>
             </div>
         </>
     );
