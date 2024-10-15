@@ -15361,6 +15361,15 @@ function Pizzas() {
     sortOrder = _useState10[0],
     setSortOrder = _useState10[1]; // Új állapot a rendezéshez
 
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState12 = _slicedToArray(_useState11, 2),
+    searchTerm = _useState12[0],
+    setSearchTerm = _useState12[1]; // Keresés kifejezés tárolása
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState14 = _slicedToArray(_useState13, 2),
+    filteredPizzas = _useState14[0],
+    setFilteredPizzas = _useState14[1]; // Szűrt pizzák tárolása
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Axios hívás az API-ra
     axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/pizzas").then(function (response) {
@@ -15371,6 +15380,14 @@ function Pizzas() {
       setLoading(false);
     });
   }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // Szűrés, ha változik a keresési kifejezés
+    var filtered = pizzas.filter(function (pizza) {
+      return pizza.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    setFilteredPizzas(filtered);
+  }, [searchTerm, pizzas]); // Figyeli a keresési kifejezést és a pizzák állapotát
+
   if (loading) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       children: "Adatok bet\xF6lt\xE9se..."
@@ -15418,6 +15435,16 @@ function Pizzas() {
     });
     setPizzas(sortedPizzas);
   };
+
+  // Keresés funkció a keresett kifejezés alapján
+  var handleSearch = function handleSearch() {
+    if (searchTerm.trim()) {
+      var _filteredPizzas = pizzas.filter(function (pizza) {
+        return pizza.name.toLowerCase().includes(searchTerm.toLowerCase());
+      });
+      setPizzas(_filteredPizzas);
+    }
+  };
   var handleAddToCart = function handleAddToCart(pizza) {
     addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel
     incrementCount(); // Számláló frissítése
@@ -15425,6 +15452,26 @@ function Pizzas() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+      className: "text-center my-5",
+      children: "Pizz\xE1k Keres\xE9se"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "row mb-4",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "col-md-8 mx-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "input-group",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            type: "text",
+            className: "form-control",
+            placeholder: "Keres\xE9s pizzan\xE9v alapj\xE1n...",
+            value: searchTerm,
+            onChange: function onChange(e) {
+              return setSearchTerm(e.target.value);
+            } // Szűrés valós időben
+          })
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
       className: "text-center my-5",
       children: "K\xEDn\xE1latunk"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {
@@ -15541,7 +15588,7 @@ function Pizzas() {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "container",
-      children: pizzas.map(function (pizza, index) {
+      children: filteredPizzas.map(function (pizza, index) {
         // Összeg kiszámítása a méret alapján
         var priceMultiplier = 1; // Alapértelmezett szorzó
 

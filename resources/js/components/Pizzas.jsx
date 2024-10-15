@@ -19,6 +19,9 @@ function Pizzas() {
 
     const [sortOrder, setSortOrder] = useState(null); // Új állapot a rendezéshez
 
+    const [searchTerm, setSearchTerm] = useState(""); // Keresés kifejezés tárolása
+    const [filteredPizzas, setFilteredPizzas] = useState([]); // Szűrt pizzák tárolása
+
     useEffect(() => {
         // Axios hívás az API-ra
         axios
@@ -32,6 +35,14 @@ function Pizzas() {
                 setLoading(false);
             });
     }, []);
+
+    useEffect(() => {
+        // Szűrés, ha változik a keresési kifejezés
+        const filtered = pizzas.filter((pizza) =>
+            pizza.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredPizzas(filtered);
+    }, [searchTerm, pizzas]); // Figyeli a keresési kifejezést és a pizzák állapotát
 
     if (loading) {
         return <div>Adatok betöltése...</div>;
@@ -77,6 +88,16 @@ function Pizzas() {
         setPizzas(sortedPizzas);
     };
 
+    // Keresés funkció a keresett kifejezés alapján
+    const handleSearch = () => {
+        if (searchTerm.trim()) {
+            const filteredPizzas = pizzas.filter((pizza) =>
+                pizza.name.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setPizzas(filteredPizzas);
+        }
+    };
+
     const handleAddToCart = (pizza) => {
         addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel
         incrementCount(); // Számláló frissítése
@@ -85,6 +106,22 @@ function Pizzas() {
 
     return (
         <>
+            <h1 className="text-center my-5">Pizzák Keresése</h1>
+
+            <div className="row mb-4">
+                <div className="col-md-8 mx-auto">
+                    <div className="input-group">
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Keresés pizzanév alapján..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)} // Szűrés valós időben
+                        />
+                    </div>
+                </div>
+            </div>
+
             <h1 className="text-center my-5">Kínálatunk</h1>
             <hr className="my-5" />
 
@@ -223,7 +260,7 @@ function Pizzas() {
             </div>
 
             <div className="container">
-                {pizzas.map((pizza, index) => {
+                {filteredPizzas.map((pizza, index) => {
                     // Összeg kiszámítása a méret alapján
                     let priceMultiplier = 1; // Alapértelmezett szorzó
 
