@@ -1,11 +1,12 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./pizzas.css";
-
 import { useCart } from "./CartContext"; // Kosár context importálása
 
 function Pizzas() {
+    const navigate = useNavigate();
+
     const { count, setCount } = useOutletContext();
     const { addToCart } = useCart(); // Kosár context használata
 
@@ -29,6 +30,8 @@ function Pizzas() {
     const [showModal, setShowModal] = useState(false); // A modal megjelenítéséhez
 
     const [modalQuantity, setModalQuantity] = useState(quantity); // New state for modal quantity
+
+    const [showSecondModal, setShowSecondModal] = useState(false);
 
     const indexOfLastPizza = currentPage * pizzasPerPage;
     const indexOfFirstPizza = indexOfLastPizza - pizzasPerPage;
@@ -124,6 +127,7 @@ function Pizzas() {
 
     const closeModal = () => {
         setShowModal(false); // Bezárjuk a modalt
+        setShowSecondModal(true); // Open the second modal
     };
 
     return (
@@ -524,6 +528,51 @@ function Pizzas() {
                                         onClick={closeModal}
                                     >
                                         Bezárás
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {showSecondModal && (
+                    <div
+                        className="modal fade show"
+                        style={{ display: "block" }}
+                        tabIndex="-1"
+                        role="dialog"
+                    >
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">
+                                        Folytatja a vásárlást?
+                                    </h5>
+                                </div>
+                                <div className="modal-body">
+                                    <p>Mit szeretne tenni?</p>
+                                </div>
+                                <div className="modal-footer">
+                                    <button
+                                        type="button"
+                                        className="btn btn-primary"
+                                        onClick={() => {
+                                            // Handle the action for continuing shopping
+                                            setShowSecondModal(false); // Close second modal
+                                        }}
+                                    >
+                                        Folytatás
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="btn btn-secondary"
+                                        onClick={() => {
+                                            // Handle the action for proceeding to checkout
+                                            setShowSecondModal(false); // Close second modal
+                                            // Add your checkout logic here
+                                            navigate("/cart"); // Navigate to the /cart route
+                                        }}
+                                    >
+                                        Megrendeléshez
                                     </button>
                                 </div>
                             </div>

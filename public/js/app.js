@@ -15331,6 +15331,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
  // Kosár context importálása
 
 function Pizzas() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
   var _useOutletContext = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useOutletContext)(),
     count = _useOutletContext.count,
     setCount = _useOutletContext.setCount;
@@ -15391,6 +15392,10 @@ function Pizzas() {
     modalQuantity = _useState24[0],
     setModalQuantity = _useState24[1]; // New state for modal quantity
 
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState26 = _slicedToArray(_useState25, 2),
+    showSecondModal = _useState26[0],
+    setShowSecondModal = _useState26[1];
   var indexOfLastPizza = currentPage * pizzasPerPage;
   var indexOfFirstPizza = indexOfLastPizza - pizzasPerPage;
   var currentPizzas = filteredPizzas.slice(indexOfFirstPizza, indexOfLastPizza);
@@ -15479,6 +15484,7 @@ function Pizzas() {
   };
   var closeModal = function closeModal() {
     setShowModal(false); // Bezárjuk a modalt
+    setShowSecondModal(true); // Open the second modal
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
@@ -15838,6 +15844,53 @@ function Pizzas() {
                 onClick: closeModal,
                 children: "Bez\xE1r\xE1s"
               })
+            })]
+          })
+        })
+      }), showSecondModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "modal fade show",
+        style: {
+          display: "block"
+        },
+        tabIndex: "-1",
+        role: "dialog",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "modal-dialog",
+          role: "document",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "modal-content",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "modal-header",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+                className: "modal-title",
+                children: "Folytatja a v\xE1s\xE1rl\xE1st?"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "modal-body",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: "Mit szeretne tenni?"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "modal-footer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                type: "button",
+                className: "btn btn-primary",
+                onClick: function onClick() {
+                  // Handle the action for continuing shopping
+                  setShowSecondModal(false); // Close second modal
+                },
+                children: "Folytat\xE1s"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                type: "button",
+                className: "btn btn-secondary",
+                onClick: function onClick() {
+                  // Handle the action for proceeding to checkout
+                  setShowSecondModal(false); // Close second modal
+                  // Add your checkout logic here
+                  navigate("/cart"); // Navigate to the /cart route
+                },
+                children: "Megrendel\xE9shez"
+              })]
             })]
           })
         })
