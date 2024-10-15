@@ -8,9 +8,9 @@ function Layout() {
 
     return (
         <>
-            <div className="sticky header-border">
+            <div className="sticky header-border p-1">
                 {/* Rács a gombokhoz, sticky beállítások */}
-                <div className="border d-flex flex-column flex-md-row justify-content-md-end header-my-green">
+                <div className="d-flex flex-column flex-md-row justify-content-md-end header-my-green">
                     <Link to="/" className="mb-2 mb-md-0 me-md-2">
                         <button
                             type="button"
