@@ -562,7 +562,7 @@ function Pizzas() {
                                             setShowSecondModal(false); // Close second modal
                                         }}
                                     >
-                                        Folytatás
+                                        Vásárlás folytatása
                                     </button>
                                     <button
                                         type="button"

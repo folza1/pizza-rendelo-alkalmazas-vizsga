@@ -3,19 +3,32 @@ import { useOutletContext } from "react-router-dom";
 import { useCart } from "./CartContext";
 
 function Cart() {
-    const { count } = useOutletContext();
-    const { cartItems } = useCart();
+    const { count, setCount } = useOutletContext();
+    const { cartItems, clearCart } = useCart();
 
     // Részösszegek összegének inicializálása
     let totalAmount = 0;
 
+    const handleClearCart = () => {
+        clearCart(); // Kosár kiürítése a contextben
+        setCount(0); // A count nullázása
+    };
+
     return (
         <>
             <div className="container mt-4 text-center">
-                {" "}
-                {/* Középre helyezés */}
                 <h1>Kosár</h1>
-                <p>Pizzák száma a kosárban: {count}</p>
+                {count > 0 && ( // Csak akkor jelenik meg, ha a count > 0
+                    <>
+                        <h3>Pizzák száma a kosárban: {count}</h3>
+                        <button
+                            className="btn btn-danger mt-3 rounded-0 fs-4"
+                            onClick={handleClearCart} // Kosár ürítése és count nullázása
+                        >
+                            Kosár ürítése
+                        </button>
+                    </>
+                )}
             </div>
 
             <div className="container mt-4">
@@ -81,6 +94,19 @@ function Cart() {
                             Összesen: {Math.round(totalAmount)} Ft
                         </h2>
                     </div>
+                )}
+            </div>
+
+            <div className="container mt-4 text-center">
+                {count > 0 && ( // Csak akkor jelenik meg, ha a count > 0
+                    <>
+                        <button
+                            className="btn btn-danger mt-3 rounded-0 fs-4"
+                            onClick={handleClearCart} // Kosár ürítése és count nullázása
+                        >
+                            Kosár ürítése
+                        </button>
+                    </>
                 )}
             </div>
         </>

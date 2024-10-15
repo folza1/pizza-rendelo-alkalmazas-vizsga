@@ -14873,19 +14873,35 @@ __webpack_require__.r(__webpack_exports__);
 
 function Cart() {
   var _useOutletContext = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useOutletContext)(),
-    count = _useOutletContext.count;
+    count = _useOutletContext.count,
+    setCount = _useOutletContext.setCount;
   var _useCart = (0,_CartContext__WEBPACK_IMPORTED_MODULE_1__.useCart)(),
-    cartItems = _useCart.cartItems;
+    cartItems = _useCart.cartItems,
+    clearCart = _useCart.clearCart;
 
   // Részösszegek összegének inicializálása
   var totalAmount = 0;
+  var handleClearCart = function handleClearCart() {
+    clearCart(); // Kosár kiürítése a contextben
+    setCount(0); // A count nullázása
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "container mt-4 text-center",
-      children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
         children: "Kos\xE1r"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
-        children: ["Pizz\xE1k sz\xE1ma a kos\xE1rban: ", count]
+      }), count > 0 &&
+      /*#__PURE__*/
+      // Csak akkor jelenik meg, ha a count > 0
+      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
+          children: ["Pizz\xE1k sz\xE1ma a kos\xE1rban: ", count]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "btn btn-danger mt-3 rounded-0 fs-4",
+          onClick: handleClearCart // Kosár ürítése és count nullázása
+          ,
+          children: "Kos\xE1r \xFCr\xEDt\xE9se"
+        })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "container mt-4",
@@ -14939,6 +14955,19 @@ function Cart() {
           className: "mt-4",
           children: ["\xD6sszesen: ", Math.round(totalAmount), " Ft"]
         })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "container mt-4 text-center",
+      children: count > 0 &&
+      /*#__PURE__*/
+      // Csak akkor jelenik meg, ha a count > 0
+      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "btn btn-danger mt-3 rounded-0 fs-4",
+          onClick: handleClearCart // Kosár ürítése és count nullázása
+          ,
+          children: "Kos\xE1r \xFCr\xEDt\xE9se"
+        })
       })
     })]
   });
@@ -14997,10 +15026,16 @@ var CartProvider = function CartProvider(_ref) {
       })]);
     });
   };
+
+  // Kosár ürítése
+  var clearCart = function clearCart() {
+    setCartItems([]);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(CartContext.Provider, {
     value: {
       cartItems: cartItems,
-      addToCart: addToCart
+      addToCart: addToCart,
+      clearCart: clearCart
     },
     children: children
   });
@@ -15906,7 +15941,7 @@ function Pizzas() {
                   // Handle the action for continuing shopping
                   setShowSecondModal(false); // Close second modal
                 },
-                children: "Folytat\xE1s"
+                children: "V\xE1s\xE1rl\xE1s folytat\xE1sa"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "button",
                 className: "btn btn-warning rounded-0",

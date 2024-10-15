@@ -14,8 +14,13 @@ export const CartProvider = ({ children }) => {
         ]);
     };
 
+    // Kosár ürítése
+    const clearCart = () => {
+        setCartItems([]);
+    };
+
     return (
-        <CartContext.Provider value={{ cartItems, addToCart }}>
+        <CartContext.Provider value={{ cartItems, addToCart, clearCart }}>
             {children}
         </CartContext.Provider>
     );
