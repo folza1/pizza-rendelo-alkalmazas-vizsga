@@ -296,7 +296,9 @@ function Pizzas() {
                         priceMultiplier = 1.5; // XXL méret esetén
                     }
 
-                    const totalPrice = pizza.price * quantity * priceMultiplier; // Összeg kiszámítása
+                    const totalPrice = Math.round(
+                        pizza.price * quantity * priceMultiplier
+                    );
 
                     return (
                         <div

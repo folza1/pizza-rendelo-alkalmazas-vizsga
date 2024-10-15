@@ -15633,8 +15633,7 @@ function Pizzas() {
         } else if (size === "XXL") {
           priceMultiplier = 1.5; // XXL méret esetén
         }
-        var totalPrice = pizza.price * quantity * priceMultiplier; // Összeg kiszámítása
-
+        var totalPrice = Math.round(pizza.price * quantity * priceMultiplier);
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "row justify-content-center my-4",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
