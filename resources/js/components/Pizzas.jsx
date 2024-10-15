@@ -106,10 +106,10 @@ function Pizzas() {
 
     return (
         <>
-            <h1 className="text-center my-5">Pizzák Keresése</h1>
+            <h3 className="text-center my-5">Pizza Keresése</h3>
 
             <div className="row mb-4">
-                <div className="col-md-8 mx-auto">
+                <div className="col-6 mx-auto">
                     <div className="input-group">
                         <input
                             type="text"
