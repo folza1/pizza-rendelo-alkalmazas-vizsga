@@ -1,6 +1,7 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
 import { useCart } from "./CartContext";
+import "./cart.css";
 
 function Cart() {
     const { count, setCount } = useOutletContext();
@@ -31,9 +32,9 @@ function Cart() {
                 )}
             </div>
 
-            <div className="container mt-4">
+            <div className="container mt-4 custom-container">
                 {cartItems.length === 0 ? (
-                    <div className="alert alert-primary" role="alert">
+                    <div className="alert alert-primary rounded-0" role="alert">
                         A kosár üres.
                     </div>
                 ) : (
