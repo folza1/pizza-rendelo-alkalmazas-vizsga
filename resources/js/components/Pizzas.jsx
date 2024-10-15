@@ -17,6 +17,8 @@ function Pizzas() {
 
     const [size, setSize] = useState("L"); // Alapértelmezett érték az L méret
 
+    const [sortOrder, setSortOrder] = useState(null); // Új állapot a rendezéshez
+
     useEffect(() => {
         // Axios hívás az API-ra
         axios
@@ -39,6 +41,42 @@ function Pizzas() {
         setCount(count + quantity);
     };
 
+    // Pizza rendezésének kezelése ár szerint növekvőn
+    const sortPizzasByPriceAscending = () => {
+        const sortedPizzas = [...pizzas].sort((a, b) => a.price - b.price);
+        setPizzas(sortedPizzas);
+        setSortOrder("price-asc");
+    };
+
+    const sortPizzasByPriceDescending = () => {
+        const sortedPizzas = [...pizzas].sort((a, b) => b.price - a.price);
+        setPizzas(sortedPizzas);
+    };
+
+    const sortPizzasByNameAscending = () => {
+        const sortedPizzas = [...pizzas].sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+        setPizzas(sortedPizzas);
+    };
+
+    const sortPizzasByNameDescending = () => {
+        const sortedPizzas = [...pizzas].sort((a, b) =>
+            b.name.localeCompare(a.name)
+        );
+        setPizzas(sortedPizzas);
+    };
+
+    const sortPizzasByLikesAscending = () => {
+        const sortedPizzas = [...pizzas].sort((a, b) => a.likes - b.likes);
+        setPizzas(sortedPizzas);
+    };
+
+    const sortPizzasByLikesDescending = () => {
+        const sortedPizzas = [...pizzas].sort((a, b) => b.likes - a.likes);
+        setPizzas(sortedPizzas);
+    };
+
     const handleAddToCart = (pizza) => {
         addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel
         incrementCount(); // Számláló frissítése
@@ -58,7 +96,10 @@ function Pizzas() {
                 <div className="d-flex flex-wrap">
                     {/* Ár szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
+                        <button
+                            className="btn bg-gray m-1 rounded-0 w-50 button-border-2"
+                            onClick={sortPizzasByPriceAscending}
+                        >
                             Ár szerint növekvő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +115,10 @@ function Pizzas() {
                                 />
                             </svg>
                         </button>
-                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
+                        <button
+                            className="btn bg-gray m-1 rounded-0 w-50 button-border-2"
+                            onClick={sortPizzasByPriceDescending}
+                        >
                             Ár szerint csökkenő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +138,10 @@ function Pizzas() {
 
                     {/* Név szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
+                        <button
+                            className="btn bg-gray m-1 rounded-0 w-50 button-border-2"
+                            onClick={sortPizzasByNameAscending}
+                        >
                             Név szerint növekvő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +157,10 @@ function Pizzas() {
                                 />
                             </svg>
                         </button>
-                        <button className="btn bg-white m-1 rounded-0 w-50 button-border-2">
+                        <button
+                            className="btn bg-white m-1 rounded-0 w-50 button-border-2"
+                            onClick={sortPizzasByNameDescending}
+                        >
                             Név szerint csökkenő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +180,10 @@ function Pizzas() {
 
                     {/* Népszerűség szerint gombok */}
                     <div className="d-flex flex-row w-100">
-                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
+                        <button
+                            className="btn bg-gray m-1 rounded-0 w-50 button-border-2"
+                            onClick={sortPizzasByLikesAscending}
+                        >
                             Népszerűség szerint növekvő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +199,10 @@ function Pizzas() {
                                 />
                             </svg>
                         </button>
-                        <button className="btn bg-gray m-1 rounded-0 w-50 button-border-2">
+                        <button
+                            className="btn bg-gray m-1 rounded-0 w-50 button-border-2"
+                            onClick={sortPizzasByLikesDescending}
+                        >
                             Népszerűség szerint csökkenő
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

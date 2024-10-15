@@ -15356,6 +15356,11 @@ function Pizzas() {
     size = _useState8[0],
     setSize = _useState8[1]; // Alapértelmezett érték az L méret
 
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState10 = _slicedToArray(_useState9, 2),
+    sortOrder = _useState10[0],
+    setSortOrder = _useState10[1]; // Új állapot a rendezéshez
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Axios hívás az API-ra
     axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/pizzas").then(function (response) {
@@ -15373,6 +15378,45 @@ function Pizzas() {
   }
   var incrementCount = function incrementCount() {
     setCount(count + quantity);
+  };
+
+  // Pizza rendezésének kezelése ár szerint növekvőn
+  var sortPizzasByPriceAscending = function sortPizzasByPriceAscending() {
+    var sortedPizzas = _toConsumableArray(pizzas).sort(function (a, b) {
+      return a.price - b.price;
+    });
+    setPizzas(sortedPizzas);
+    setSortOrder("price-asc");
+  };
+  var sortPizzasByPriceDescending = function sortPizzasByPriceDescending() {
+    var sortedPizzas = _toConsumableArray(pizzas).sort(function (a, b) {
+      return b.price - a.price;
+    });
+    setPizzas(sortedPizzas);
+  };
+  var sortPizzasByNameAscending = function sortPizzasByNameAscending() {
+    var sortedPizzas = _toConsumableArray(pizzas).sort(function (a, b) {
+      return a.name.localeCompare(b.name);
+    });
+    setPizzas(sortedPizzas);
+  };
+  var sortPizzasByNameDescending = function sortPizzasByNameDescending() {
+    var sortedPizzas = _toConsumableArray(pizzas).sort(function (a, b) {
+      return b.name.localeCompare(a.name);
+    });
+    setPizzas(sortedPizzas);
+  };
+  var sortPizzasByLikesAscending = function sortPizzasByLikesAscending() {
+    var sortedPizzas = _toConsumableArray(pizzas).sort(function (a, b) {
+      return a.likes - b.likes;
+    });
+    setPizzas(sortedPizzas);
+  };
+  var sortPizzasByLikesDescending = function sortPizzasByLikesDescending() {
+    var sortedPizzas = _toConsumableArray(pizzas).sort(function (a, b) {
+      return b.likes - a.likes;
+    });
+    setPizzas(sortedPizzas);
   };
   var handleAddToCart = function handleAddToCart(pizza) {
     addToCart(pizza, size, quantity); // Pizza hozzáadása a kosárhoz a mérettel és mennyiséggel
@@ -15398,6 +15442,7 @@ function Pizzas() {
           className: "d-flex flex-row w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
+            onClick: sortPizzasByPriceAscending,
             children: ["\xC1r szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15412,6 +15457,7 @@ function Pizzas() {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
+            onClick: sortPizzasByPriceDescending,
             children: ["\xC1r szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15429,6 +15475,7 @@ function Pizzas() {
           className: "d-flex flex-row w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
+            onClick: sortPizzasByNameAscending,
             children: ["N\xE9v szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15443,6 +15490,7 @@ function Pizzas() {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             className: "btn bg-white m-1 rounded-0 w-50 button-border-2",
+            onClick: sortPizzasByNameDescending,
             children: ["N\xE9v szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15460,6 +15508,7 @@ function Pizzas() {
           className: "d-flex flex-row w-100",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
+            onClick: sortPizzasByLikesAscending,
             children: ["N\xE9pszer\u0171s\xE9g szerint n\xF6vekv\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
@@ -15474,6 +15523,7 @@ function Pizzas() {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             className: "btn bg-gray m-1 rounded-0 w-50 button-border-2",
+            onClick: sortPizzasByLikesDescending,
             children: ["N\xE9pszer\u0171s\xE9g szerint cs\xF6kken\u0151", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "16",
