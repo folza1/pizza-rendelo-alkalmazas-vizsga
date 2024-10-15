@@ -524,7 +524,7 @@ function Pizzas() {
                                 <div className="modal-footer">
                                     <button
                                         type="button"
-                                        className="btn btn-secondary"
+                                        className="btn btn-secondary rounded-0"
                                         onClick={closeModal}
                                     >
                                         Bezárás
@@ -554,7 +554,7 @@ function Pizzas() {
                                 <div className="modal-footer">
                                     <button
                                         type="button"
-                                        className="btn btn-primary"
+                                        className="btn btn-primary rounded-0"
                                         onClick={() => {
                                             // Handle the action for continuing shopping
                                             setShowSecondModal(false); // Close second modal
@@ -564,7 +564,7 @@ function Pizzas() {
                                     </button>
                                     <button
                                         type="button"
-                                        className="btn btn-secondary"
+                                        className="btn btn-warning rounded-0"
                                         onClick={() => {
                                             // Handle the action for proceeding to checkout
                                             setShowSecondModal(false); // Close second modal
@@ -572,7 +572,7 @@ function Pizzas() {
                                             navigate("/cart"); // Navigate to the /cart route
                                         }}
                                     >
-                                        Megrendeléshez
+                                        Tovább a megrendeléshez
                                     </button>
                                 </div>
                             </div>

@@ -15840,7 +15840,7 @@ function Pizzas() {
               className: "modal-footer",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "button",
-                className: "btn btn-secondary",
+                className: "btn btn-secondary rounded-0",
                 onClick: closeModal,
                 children: "Bez\xE1r\xE1s"
               })
@@ -15874,7 +15874,7 @@ function Pizzas() {
               className: "modal-footer",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "button",
-                className: "btn btn-primary",
+                className: "btn btn-primary rounded-0",
                 onClick: function onClick() {
                   // Handle the action for continuing shopping
                   setShowSecondModal(false); // Close second modal
@@ -15882,14 +15882,14 @@ function Pizzas() {
                 children: "Folytat\xE1s"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "button",
-                className: "btn btn-secondary",
+                className: "btn btn-warning rounded-0",
                 onClick: function onClick() {
                   // Handle the action for proceeding to checkout
                   setShowSecondModal(false); // Close second modal
                   // Add your checkout logic here
                   navigate("/cart"); // Navigate to the /cart route
                 },
-                children: "Megrendel\xE9shez"
+                children: "Tov\xE1bb a megrendel\xE9shez"
               })]
             })]
           })
