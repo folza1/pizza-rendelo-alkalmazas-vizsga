@@ -15055,10 +15055,20 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 var CartContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
 var CartProvider = function CartProvider(_ref) {
   var children = _ref.children;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  // Kezdő kosáradatok betöltése a localStorage-ből, ha vannak
+  var getInitialCart = function getInitialCart() {
+    var storedCart = localStorage.getItem("cartItems");
+    return storedCart ? JSON.parse(storedCart) : [];
+  };
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(getInitialCart),
     _useState2 = _slicedToArray(_useState, 2),
     cartItems = _useState2[0],
     setCartItems = _useState2[1];
+
+  // Frissíteni a localStorage-et minden alkalommal, amikor a cartItems megváltozik
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
   var addToCart = function addToCart(pizza, size, quantity) {
     setCartItems(function (prevItems) {
       return [].concat(_toConsumableArray(prevItems), [_objectSpread(_objectSpread({}, pizza), {}, {
@@ -15068,9 +15078,10 @@ var CartProvider = function CartProvider(_ref) {
     });
   };
 
-  // Kosár ürítése
+  // Kosár ürítése és a localStorage törlése
   var clearCart = function clearCart() {
     setCartItems([]);
+    localStorage.removeItem("cartItems");
   };
 
   // Elem eltávolítása a kosárból
@@ -15312,10 +15323,20 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 function Layout() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  // Kezdeti érték betöltése a localStorage-ből
+  var getInitialCount = function getInitialCount() {
+    var storedCount = localStorage.getItem("cartCount");
+    return storedCount ? JSON.parse(storedCount) : 0;
+  };
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(getInitialCount),
     _useState2 = _slicedToArray(_useState, 2),
     count = _useState2[0],
     setCount = _useState2[1];
+
+  // Ha a count értéke változik, frissíteni kell a localStorage-ben is
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    localStorage.setItem("cartCount", JSON.stringify(count));
+  }, [count]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "sticky header-border p-1",

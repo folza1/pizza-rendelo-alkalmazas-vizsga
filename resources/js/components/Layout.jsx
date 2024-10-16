@@ -1,15 +1,25 @@
 import { Outlet, Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./layout.css";
 
 function Layout() {
-    const [count, setCount] = useState(0);
+    // Kezdeti érték betöltése a localStorage-ből
+    const getInitialCount = () => {
+        const storedCount = localStorage.getItem("cartCount");
+        return storedCount ? JSON.parse(storedCount) : 0;
+    };
+
+    const [count, setCount] = useState(getInitialCount);
+
+    // Ha a count értéke változik, frissíteni kell a localStorage-ben is
+    useEffect(() => {
+        localStorage.setItem("cartCount", JSON.stringify(count));
+    }, [count]);
 
     return (
         <>
             <div className="sticky header-border p-1">
-                {/* Rács a gombokhoz, sticky beállítások */}
                 <div className="d-flex flex-column flex-md-row justify-content-md-end header-my-green">
                     <Link to="/" className="mb-2 mb-md-0 me-md-2">
                         <button
