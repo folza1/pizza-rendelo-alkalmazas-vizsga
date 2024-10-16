@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/pizza.webp" type="image/png" />
+
 
     <title>Pizza Rendelő</title>
 
