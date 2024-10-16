@@ -238,7 +238,7 @@ function Cart() {
                     tabIndex="-1"
                 >
                     <div className="modal-dialog">
-                        <div className="modal-content">
+                        <div className="modal-content rounded-0">
                             <div className="modal-header">
                                 <h4 className="modal-title">
                                     Megrendelési adatok
