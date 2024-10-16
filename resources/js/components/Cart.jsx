@@ -1,23 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { useCart } from "./CartContext";
 import "./cart.css";
+import axios from "axios";
+import { zip } from "lodash";
 
 function Cart() {
     const { count, setCount } = useOutletContext();
-    const { cartItems, clearCart, removeItem } = useCart(); // Add removeItem from context
+    const { cartItems, clearCart, removeItem } = useCart();
+    const [showModal, setShowModal] = useState(false); // State to control modal visibility
+    const [showSuccessModal, setShowSuccessModal] = useState(false); // State for success modal
 
-    // Részösszegek összegének inicializálása
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        zip: "",
+        city: "",
+        address: "",
+        email: "",
+        terms: false,
+        privacy: false,
+    });
+
+    const [errors, setErrors] = useState({});
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData({
+            ...formData,
+            [name]: type === "checkbox" ? checked : value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .post("/api/order", formData)
+            .then((response) => {
+                if (response.status === 200) {
+                    // Close the form modal and show the success modal
+                    setShowModal(false);
+                    setShowSuccessModal(true);
+                }
+            })
+            .catch((error) => {
+                if (error.response && error.response.data.errors) {
+                    // Validation errors
+                    setErrors(error.response.data.errors);
+                }
+            });
+    };
+
     let totalAmount = 0;
 
     const handleClearCart = () => {
-        clearCart(); // Kosár kiürítése a contextben
-        setCount(0); // A count nullázása
+        clearCart();
+        setCount(0);
     };
 
     const handleRemoveItem = (index) => {
-        removeItem(index); // Remove item from cart by index
-        setCount((prevCount) => prevCount - cartItems[index].quantity); // Update count
+        removeItem(index);
+        setCount((prevCount) => prevCount - cartItems[index].quantity);
+    };
+
+    const handleOrderClick = () => {
+        setShowModal(true); // Show the modal on button click
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false); // Close the modal
+    };
+
+    const handleCloseSuccessModal = () => {
+        setShowSuccessModal(false); // Close the success modal
     };
 
     return (
@@ -26,12 +82,12 @@ function Cart() {
                 <div className="col-10 border">
                     <div className="text-center">
                         <h1>Kosár</h1>
-                        {count > 0 && ( // Csak akkor jelenik meg, ha a count > 0
+                        {count > 0 && (
                             <>
                                 <h3>Pizzák száma a kosárban: {count}</h3>
                                 <button
                                     className="btn btn-danger mt-3 rounded-0 fs-4"
-                                    onClick={handleClearCart} // Kosár ürítése és count nullázása
+                                    onClick={handleClearCart}
                                 >
                                     Kosár ürítése
                                 </button>
@@ -51,10 +107,7 @@ function Cart() {
                             <div>
                                 <ul className="list-group">
                                     {cartItems.map((item, index) => {
-                                        // Alapár, számra konvertálva
                                         let basePrice = Number(item.price);
-
-                                        // Árkalkuláció a méret alapján
                                         let adjustedPrice = basePrice;
 
                                         if (item.size === "XL") {
@@ -63,7 +116,6 @@ function Cart() {
                                             adjustedPrice *= 1.5;
                                         }
 
-                                        // Részösszeg hozzáadása az összesített összeghez
                                         totalAmount +=
                                             adjustedPrice * item.quantity;
 
@@ -105,7 +157,7 @@ function Cart() {
                                                     className="btn btn-danger rounded-0"
                                                     onClick={() =>
                                                         handleRemoveItem(index)
-                                                    } // Remove item
+                                                    }
                                                 >
                                                     Töröl
                                                 </button>
@@ -113,10 +165,18 @@ function Cart() {
                                         );
                                     })}
                                 </ul>
-                                {/* Összesített összeg kiírása */}
                                 <h2 className="mt-4">
                                     Összesen: {Math.round(totalAmount)} Ft
                                 </h2>
+
+                                <div className="text-center mt-4">
+                                    <button
+                                        className="btn btn-success fs-4 rounded-0"
+                                        onClick={handleOrderClick} // Show modal on click
+                                    >
+                                        Megrendelés
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -135,6 +195,259 @@ function Cart() {
                     </div>
                 </div>
             </div>
+
+            {/* Modal for the order form */}
+            {showModal && (
+                <div
+                    className="modal show"
+                    style={{
+                        display: "block",
+                        backgroundColor: "rgba(0,0,0,0.5)",
+                    }}
+                    tabIndex="-1"
+                >
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h4 className="modal-title">
+                                    Megrendelési adatok
+                                </h4>
+                                <button
+                                    type="button"
+                                    className="btn-close rounded-0"
+                                    onClick={handleCloseModal}
+                                ></button>
+                            </div>
+                            <div className="modal-body">
+                                <form onSubmit={handleSubmit}>
+                                    <div className="mb-3">
+                                        <label className="form-label">
+                                            Vezetéknév
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="firstName"
+                                            className="form-control"
+                                            placeholder="Írd be a vezetékneved"
+                                            value={formData.firstName}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.firstName && (
+                                            <p className="color-red">
+                                                {errors.firstName[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">
+                                            Keresztnév
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="lastName"
+                                            className="form-control"
+                                            placeholder="Írd be a keresztneved"
+                                            value={formData.lastName}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.lastName && (
+                                            <p className="color-red">
+                                                {errors.lastName[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">
+                                            Telefonszám
+                                        </label>
+                                        <input
+                                            type="number"
+                                            name="phone"
+                                            className="form-control"
+                                            placeholder="Írd be a telefonszámod"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.phone && (
+                                            <p className="color-red">
+                                                {errors.phone[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">
+                                            Irányítószám
+                                        </label>
+                                        <input
+                                            type="number"
+                                            name="zip"
+                                            className="form-control"
+                                            placeholder="Írd be az irányítószámot"
+                                            value={formData.zip}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.zip && (
+                                            <p className="color-red">
+                                                {errors.zip[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">
+                                            Település
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="city"
+                                            className="form-control"
+                                            placeholder="Település neve"
+                                            value={formData.city}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.city && (
+                                            <p className="color-red">
+                                                {errors.city[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">
+                                            Szállítási cím
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="address"
+                                            className="form-control"
+                                            placeholder="Utca és házszám"
+                                            value={formData.address}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.address && (
+                                            <p className="color-red">
+                                                {errors.address[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">
+                                            Email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            className="form-control"
+                                            placeholder="Email címed"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                        />
+                                        {errors.email && (
+                                            <p className="color-red">
+                                                {errors.email[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="form-check mb-3">
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            name="terms"
+                                            id="termsCheckbox"
+                                            value={formData.terms}
+                                            onChange={handleChange}
+                                        />
+                                        <label
+                                            className="form-check-label"
+                                            htmlFor="termsCheckbox"
+                                        >
+                                            Elfogadom az ÁFSZ-t
+                                        </label>
+                                        {errors.terms && (
+                                            <p className="color-red">
+                                                {errors.terms[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="form-check mb-3">
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            name="privacy"
+                                            id="privacyCheckbox"
+                                            value={formData.privacy}
+                                            onChange={handleChange}
+                                        />
+                                        <label
+                                            className="form-check-label"
+                                            htmlFor="privacyCheckbox"
+                                        >
+                                            Elfogadom az Adatvédelmi
+                                            szabályzatot
+                                        </label>
+                                        {errors.privacy && (
+                                            <p className="color-red">
+                                                {errors.privacy[0]}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button
+                                            type="button"
+                                            className="btn btn-secondary rounded-0"
+                                            onClick={handleCloseModal}
+                                        >
+                                            Bezárás
+                                        </button>
+                                        <button
+                                            type="submit"
+                                            className="btn btn-primary rounded-0"
+                                        >
+                                            Megrendelés leadása
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {/* Modal for success message */}
+            {showSuccessModal && (
+                <div
+                    className="modal show"
+                    style={{
+                        display: "block",
+                        backgroundColor: "rgba(0,0,0,0.5)",
+                    }}
+                    tabIndex="-1"
+                >
+                    <div className="modal-dialog">
+                        <div className="modal-content bg-success text-white">
+                            <div className="modal-header">
+                                <h4 className="modal-title">
+                                    Sikeres megrendelés!
+                                </h4>
+                                <button
+                                    type="button"
+                                    className="btn-close rounded-0"
+                                    onClick={handleCloseSuccessModal}
+                                ></button>
+                            </div>
+                            <div className="modal-body">
+                                <p>A megrendelés sikeresen leadva!</p>
+                            </div>
+                            <div className="modal-footer">
+                                <button
+                                    type="button"
+                                    className="btn btn-light rounded-0"
+                                    onClick={handleCloseSuccessModal}
+                                >
+                                    Bezárás
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

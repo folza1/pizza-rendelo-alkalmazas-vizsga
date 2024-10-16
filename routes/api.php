@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Pizza;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('/pizzas', function () {
 
     return response()->json($pizzas);
 });
+
+Route::post('/order', [OrderController::class, 'placeOrder']);

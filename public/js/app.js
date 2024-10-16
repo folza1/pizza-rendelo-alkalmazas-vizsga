@@ -14613,7 +14613,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".custom-container {\n    min-height: 700px;\n    height: auto; /* Ez alapértelmezés szerint automatikus, de itt is megadhatod */\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".custom-container {\n    min-height: 700px;\n    height: auto; /* Ez alapértelmezés szerint automatikus, de itt is megadhatod */\n}\n\n.color-red{\n    color: red;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -14888,122 +14888,195 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _CartContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CartContext */ "./resources/js/components/CartContext.js");
 /* harmony import */ var _cart_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cart.css */ "./resources/js/components/cart.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
 
 
 
 
 
 function Cart() {
-  var _useOutletContext = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useOutletContext)(),
+  var _useOutletContext = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useOutletContext)(),
     count = _useOutletContext.count,
     setCount = _useOutletContext.setCount;
   var _useCart = (0,_CartContext__WEBPACK_IMPORTED_MODULE_1__.useCart)(),
     cartItems = _useCart.cartItems,
     clearCart = _useCart.clearCart,
-    removeItem = _useCart.removeItem; // Add removeItem from context
+    removeItem = _useCart.removeItem;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    showModal = _useState2[0],
+    setShowModal = _useState2[1]; // State to control modal visibility
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    showSuccessModal = _useState4[0],
+    setShowSuccessModal = _useState4[1]; // State for success modal
 
-  // Részösszegek összegének inicializálása
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      firstName: "",
+      lastName: "",
+      phone: "",
+      zip: "",
+      city: "",
+      address: "",
+      email: "",
+      terms: false,
+      privacy: false
+    }),
+    _useState6 = _slicedToArray(_useState5, 2),
+    formData = _useState6[0],
+    setFormData = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState8 = _slicedToArray(_useState7, 2),
+    errors = _useState8[0],
+    setErrors = _useState8[1];
+  var handleChange = function handleChange(e) {
+    var _e$target = e.target,
+      name = _e$target.name,
+      value = _e$target.value,
+      type = _e$target.type,
+      checked = _e$target.checked;
+    setFormData(_objectSpread(_objectSpread({}, formData), {}, _defineProperty({}, name, type === "checkbox" ? checked : value)));
+  };
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/order", formData).then(function (response) {
+      if (response.status === 200) {
+        // Close the form modal and show the success modal
+        setShowModal(false);
+        setShowSuccessModal(true);
+      }
+    })["catch"](function (error) {
+      if (error.response && error.response.data.errors) {
+        // Validation errors
+        setErrors(error.response.data.errors);
+      }
+    });
+  };
   var totalAmount = 0;
   var handleClearCart = function handleClearCart() {
-    clearCart(); // Kosár kiürítése a contextben
-    setCount(0); // A count nullázása
+    clearCart();
+    setCount(0);
   };
   var handleRemoveItem = function handleRemoveItem(index) {
-    removeItem(index); // Remove item from cart by index
+    removeItem(index);
     setCount(function (prevCount) {
       return prevCount - cartItems[index].quantity;
-    }); // Update count
+    });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  var handleOrderClick = function handleOrderClick() {
+    setShowModal(true); // Show the modal on button click
+  };
+  var handleCloseModal = function handleCloseModal() {
+    setShowModal(false); // Close the modal
+  };
+  var handleCloseSuccessModal = function handleCloseSuccessModal() {
+    setShowSuccessModal(false); // Close the success modal
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "container mt-4",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "row justify-content-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "col-10 border",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "text-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
             children: "Kos\xE1r"
-          }), count > 0 &&
-          /*#__PURE__*/
-          // Csak akkor jelenik meg, ha a count > 0
-          (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
+          }), count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
               children: ["Pizz\xE1k sz\xE1ma a kos\xE1rban: ", count]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               className: "btn btn-danger mt-3 rounded-0 fs-4",
-              onClick: handleClearCart // Kosár ürítése és count nullázása
-              ,
+              onClick: handleClearCart,
               children: "Kos\xE1r \xFCr\xEDt\xE9se"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "mt-4 custom-container",
-          children: cartItems.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: cartItems.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "alert alert-primary rounded-0",
             role: "alert",
             children: "A kos\xE1r \xFCres."
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
               className: "list-group",
               children: cartItems.map(function (item, index) {
-                // Alapár, számra konvertálva
                 var basePrice = Number(item.price);
-
-                // Árkalkuláció a méret alapján
                 var adjustedPrice = basePrice;
                 if (item.size === "XL") {
                   adjustedPrice *= 1.25;
                 } else if (item.size === "XXL") {
                   adjustedPrice *= 1.5;
                 }
-
-                // Részösszeg hozzáadása az összesített összeghez
                 totalAmount += adjustedPrice * item.quantity;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
                   className: "list-group-item d-flex justify-content-between align-items-center",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
                       className: "mb-1",
                       children: item.name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                       className: "mb-1",
                       children: ["M\xE9ret: ", item.size]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                       className: "mb-1",
                       children: ["Mennyis\xE9g:", " ", item.quantity, " db"]
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                       className: "mb-1",
                       children: ["\xC1r:", " ", Math.round(adjustedPrice), " ", "Ft / db"]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                       className: "mb-1",
                       children: ["R\xE9sz\xF6sszeg:", " ", Math.round(adjustedPrice * item.quantity), " ", "Ft"]
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                     className: "btn btn-danger rounded-0",
                     onClick: function onClick() {
                       return handleRemoveItem(index);
-                    } // Remove item
-                    ,
+                    },
                     children: "T\xF6r\xF6l"
                   })]
                 }, index);
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
               className: "mt-4",
               children: ["\xD6sszesen: ", Math.round(totalAmount), " Ft"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "text-center mt-4",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                className: "btn btn-success fs-4 rounded-0",
+                onClick: handleOrderClick // Show modal on click
+                ,
+                children: "Megrendel\xE9s"
+              })
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "text-center mt-4",
-          children: count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          children: count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               className: "btn btn-danger mt-3 rounded-0 fs-4",
               onClick: handleClearCart,
               children: "Kos\xE1r \xFCr\xEDt\xE9se"
@@ -15011,7 +15084,232 @@ function Cart() {
           })
         })]
       })
-    })
+    }), showModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "modal show",
+      style: {
+        display: "block",
+        backgroundColor: "rgba(0,0,0,0.5)"
+      },
+      tabIndex: "-1",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "modal-dialog",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "modal-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "modal-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+              className: "modal-title",
+              children: "Megrendel\xE9si adatok"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              type: "button",
+              className: "btn-close rounded-0",
+              onClick: handleCloseModal
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "modal-body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+              onSubmit: handleSubmit,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-label",
+                  children: "Vezet\xE9kn\xE9v"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "text",
+                  name: "firstName",
+                  className: "form-control",
+                  placeholder: "\xCDrd be a vezet\xE9kneved",
+                  value: formData.firstName,
+                  onChange: handleChange
+                }), errors.firstName && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.firstName[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-label",
+                  children: "Keresztn\xE9v"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "text",
+                  name: "lastName",
+                  className: "form-control",
+                  placeholder: "\xCDrd be a keresztneved",
+                  value: formData.lastName,
+                  onChange: handleChange
+                }), errors.lastName && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.lastName[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-label",
+                  children: "Telefonsz\xE1m"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "number",
+                  name: "phone",
+                  className: "form-control",
+                  placeholder: "\xCDrd be a telefonsz\xE1mod",
+                  value: formData.phone,
+                  onChange: handleChange
+                }), errors.phone && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.phone[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-label",
+                  children: "Ir\xE1ny\xEDt\xF3sz\xE1m"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "number",
+                  name: "zip",
+                  className: "form-control",
+                  placeholder: "\xCDrd be az ir\xE1ny\xEDt\xF3sz\xE1mot",
+                  value: formData.zip,
+                  onChange: handleChange
+                }), errors.zip && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.zip[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-label",
+                  children: "Telep\xFCl\xE9s"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "text",
+                  name: "city",
+                  className: "form-control",
+                  placeholder: "Telep\xFCl\xE9s neve",
+                  value: formData.city,
+                  onChange: handleChange
+                }), errors.city && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.city[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-label",
+                  children: "Sz\xE1ll\xEDt\xE1si c\xEDm"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "text",
+                  name: "address",
+                  className: "form-control",
+                  placeholder: "Utca \xE9s h\xE1zsz\xE1m",
+                  value: formData.address,
+                  onChange: handleChange
+                }), errors.address && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.address[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-label",
+                  children: "Email"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  type: "email",
+                  name: "email",
+                  className: "form-control",
+                  placeholder: "Email c\xEDmed",
+                  value: formData.email,
+                  onChange: handleChange
+                }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.email[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "form-check mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  className: "form-check-input",
+                  type: "checkbox",
+                  name: "terms",
+                  id: "termsCheckbox",
+                  value: formData.terms,
+                  onChange: handleChange
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-check-label",
+                  htmlFor: "termsCheckbox",
+                  children: "Elfogadom az \xC1FSZ-t"
+                }), errors.terms && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.terms[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "form-check mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                  className: "form-check-input",
+                  type: "checkbox",
+                  name: "privacy",
+                  id: "privacyCheckbox",
+                  value: formData.privacy,
+                  onChange: handleChange
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  className: "form-check-label",
+                  htmlFor: "privacyCheckbox",
+                  children: "Elfogadom az Adatv\xE9delmi szab\xE1lyzatot"
+                }), errors.privacy && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                  className: "color-red",
+                  children: errors.privacy[0]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                className: "modal-footer",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                  type: "button",
+                  className: "btn btn-secondary rounded-0",
+                  onClick: handleCloseModal,
+                  children: "Bez\xE1r\xE1s"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                  type: "submit",
+                  className: "btn btn-primary rounded-0",
+                  children: "Megrendel\xE9s lead\xE1sa"
+                })]
+              })]
+            })
+          })]
+        })
+      })
+    }), showSuccessModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "modal show",
+      style: {
+        display: "block",
+        backgroundColor: "rgba(0,0,0,0.5)"
+      },
+      tabIndex: "-1",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "modal-dialog",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "modal-content bg-success text-white",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "modal-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+              className: "modal-title",
+              children: "Sikeres megrendel\xE9s!"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              type: "button",
+              className: "btn-close rounded-0",
+              onClick: handleCloseSuccessModal
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "modal-body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+              children: "A megrendel\xE9s sikeresen leadva!"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "modal-footer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              type: "button",
+              className: "btn btn-light rounded-0",
+              onClick: handleCloseSuccessModal,
+              children: "Bez\xE1r\xE1s"
+            })
+          })]
+        })
+      })
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Cart);

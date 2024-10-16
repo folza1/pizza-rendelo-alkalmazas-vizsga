@@ -2,3 +2,7 @@
     min-height: 700px;
     height: auto; /* Ez alapértelmezés szerint automatikus, de itt is megadhatod */
 }
+
+.color-red{
+    color: red;
+}
