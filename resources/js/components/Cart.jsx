@@ -452,7 +452,9 @@ function Cart() {
                     tabIndex="-1"
                 >
                     <div className="modal-dialog">
-                        <div className="modal-content bg-success text-white">
+                        <div className="modal-content bg-success text-white rounded-0">
+                            {" "}
+                            {/* Itt van a rounded-0 osztály */}
                             <div className="modal-header">
                                 <h4 className="modal-title">
                                     Sikeres megrendelés!
@@ -479,10 +481,11 @@ function Cart() {
                     </div>
                 </div>
             )}
+
             {/* Loading Modal */}
             {showLoadingModal && (
                 <div
-                    className="modal show rounded-0"
+                    className="modal show"
                     style={{
                         display: "block",
                         backgroundColor: "rgba(0,0,0,0.5)",
@@ -490,7 +493,9 @@ function Cart() {
                     tabIndex="-1"
                 >
                     <div className="modal-dialog">
-                        <div className="modal-content">
+                        <div className="modal-content rounded-0">
+                            {" "}
+                            {/* Itt van a rounded-0 osztály */}
                             <div className="modal-body text-center">
                                 <h5>Email küldése folyamatban...</h5>
                                 <div className="spinner-border" role="status">
