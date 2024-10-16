@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\OrderConfirmation;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -47,8 +49,8 @@ class OrderController extends Controller
         $cartItems = $request->cartItems;
         $formData = $request->formData;
 
-        // Logic to send email with cartItems and formData
-        // ...
+        // E-mail küldése a formData-ban szereplő e-mail címre
+        Mail::to($formData['email'])->send(new OrderConfirmation($cartItems, $formData));
 
         return response()->json(['message' => 'Email sent successfully!'], 200);
     }
