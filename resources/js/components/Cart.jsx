@@ -3,7 +3,6 @@ import { useOutletContext, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import "./cart.css";
 import axios from "axios";
-import { zip } from "lodash";
 
 function Cart() {
     const navigate = useNavigate();
@@ -101,6 +100,7 @@ function Cart() {
 
     useEffect(() => {
         let isMounted = true; // Boolean változó a komponens állapotának követésére
+        window.scrollTo(0, 0); // Görgess a tetejére
 
         return () => {
             isMounted = false; // A komponens le bontásakor a boolean változót false-ra állítjuk
