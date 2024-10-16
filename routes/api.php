@@ -28,3 +28,5 @@ Route::get('/pizzas', function () {
 });
 
 Route::post('/order', [OrderController::class, 'placeOrder']);
+
+Route::post('/send-email', [OrderController::class, 'sendEmail']);

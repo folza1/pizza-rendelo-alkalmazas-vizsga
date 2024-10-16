@@ -1,9 +1,9 @@
 function Footer() {
     return (
-        <footer class="bg-dark text-white pt-4">
-            <div class="container py-4">
-                <div class="row">
-                    <div class="col-md-4">
+        <footer className="bg-dark text-white pt-4">
+            <div className="container py-4">
+                <div className="row">
+                    <div className="col-md-4">
                         <h5>Pizza Rendelő</h5>
                         <p>
                             1234 Budapest, Pizzéria utca 5.
@@ -12,35 +12,35 @@ function Footer() {
                         </p>
                     </div>
 
-                    <div class="col-md-4">
+                    <div className="col-md-4">
                         <h5>Nyitvatartás</h5>
-                        <ul class="list-unstyled">
+                        <ul className="list-unstyled">
                             <li>Hétfő - Péntek: 10:00 - 22:00</li>
                             <li>Szombat: 12:00 - 23:00</li>
                             <li>Vasárnap: Zárva</li>
                         </ul>
                     </div>
 
-                    <div class="col-md-4">
+                    <div className="col-md-4">
                         <h5>Kövess minket</h5>
                         <div>
-                            <a href="#" class="text-white me-3">
-                                <i class="bi bi-facebook"></i>
+                            <a href="#" className="text-white me-3">
+                                <i className="bi bi-facebook"></i>
                             </a>
-                            <a href="#" class="text-white me-3">
-                                <i class="bi bi-instagram"></i>
+                            <a href="#" className="text-white me-3">
+                                <i className="bi bi-instagram"></i>
                             </a>
-                            <a href="#" class="text-white me-3">
-                                <i class="bi bi-twitter"></i>
+                            <a href="#" className="text-white me-3">
+                                <i className="bi bi-twitter"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <hr class="my-4" />
+                <hr className="my-4" />
 
-                <div class="text-center py-3">
-                    <p class="mb-0">
+                <div className="text-center py-3">
+                    <p className="mb-0">
                         &copy; 2024 Pizza Rendelő. Minden jog fenntartva.
                     </p>
                 </div>

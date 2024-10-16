@@ -41,4 +41,15 @@ class OrderController extends Controller
         // Sikeres validálás után rendelés logika...
         return response()->json(['message' => 'A megrendelés sikeresen leadva!'], 200);
     }
+
+    public function sendEmail(Request $request)
+    {
+        $cartItems = $request->cartItems;
+        $formData = $request->formData;
+
+        // Logic to send email with cartItems and formData
+        // ...
+
+        return response()->json(['message' => 'Email sent successfully!'], 200);
+    }
 }

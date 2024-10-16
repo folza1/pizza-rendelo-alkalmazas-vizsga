@@ -14992,9 +14992,21 @@ function Cart() {
     setShowModal(false); // Close the modal
   };
   var handleCloseSuccessModal = function handleCloseSuccessModal() {
-    setShowSuccessModal(false); // Close the success modal
-    handleClearCart();
-    navigate("/"); // Navigate to the / route
+    // Send cartItems and formData to the backend
+    axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/send-email", {
+      cartItems: cartItems,
+      formData: formData
+    }).then(function (response) {
+      if (response.status === 200) {
+        console.log(response.data.message); // This will log the message from the backend
+        // Close the success modal and clear the cart
+        setShowSuccessModal(false);
+        handleClearCart();
+        navigate("/"); // Navigate to the / route
+      }
+    })["catch"](function (error) {
+      console.error("Error sending email:", error);
+    });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "container my-4",
@@ -15517,24 +15529,24 @@ __webpack_require__.r(__webpack_exports__);
 
 function Footer() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("footer", {
-    "class": "bg-dark text-white pt-4",
+    className: "bg-dark text-white pt-4",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      "class": "container py-4",
+      className: "container py-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        "class": "row",
+        className: "row",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          "class": "col-md-4",
+          className: "col-md-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
             children: "Pizza Rendel\u0151"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
             children: ["1234 Budapest, Pizz\xE9ria utca 5.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), "Telefonsz\xE1m: +36 1 234 5678"]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          "class": "col-md-4",
+          className: "col-md-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
             children: "Nyitvatart\xE1s"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
-            "class": "list-unstyled",
+            className: "list-unstyled",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
               children: "H\xE9tf\u0151 - P\xE9ntek: 10:00 - 22:00"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
@@ -15544,37 +15556,37 @@ function Footer() {
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-          "class": "col-md-4",
+          className: "col-md-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
             children: "K\xF6vess minket"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
               href: "#",
-              "class": "text-white me-3",
+              className: "text-white me-3",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-                "class": "bi bi-facebook"
+                className: "bi bi-facebook"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
               href: "#",
-              "class": "text-white me-3",
+              className: "text-white me-3",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-                "class": "bi bi-instagram"
+                className: "bi bi-instagram"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
               href: "#",
-              "class": "text-white me-3",
+              className: "text-white me-3",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-                "class": "bi bi-twitter"
+                className: "bi bi-twitter"
               })
             })]
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {
-        "class": "my-4"
+        className: "my-4"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        "class": "text-center py-3",
+        className: "text-center py-3",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          "class": "mb-0",
+          className: "mb-0",
           children: "\xA9 2024 Pizza Rendel\u0151. Minden jog fenntartva."
         })
       })]

@@ -75,9 +75,21 @@ function Cart() {
     };
 
     const handleCloseSuccessModal = () => {
-        setShowSuccessModal(false); // Close the success modal
-        handleClearCart();
-        navigate("/"); // Navigate to the / route
+        // Send cartItems and formData to the backend
+        axios
+            .post("/api/send-email", { cartItems, formData })
+            .then((response) => {
+                if (response.status === 200) {
+                    console.log(response.data.message); // This will log the message from the backend
+                    // Close the success modal and clear the cart
+                    setShowSuccessModal(false);
+                    handleClearCart();
+                    navigate("/"); // Navigate to the / route
+                }
+            })
+            .catch((error) => {
+                console.error("Error sending email:", error);
+            });
     };
 
     return (
