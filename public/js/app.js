@@ -14903,7 +14903,8 @@ function Cart() {
     setCount = _useOutletContext.setCount;
   var _useCart = (0,_CartContext__WEBPACK_IMPORTED_MODULE_1__.useCart)(),
     cartItems = _useCart.cartItems,
-    clearCart = _useCart.clearCart;
+    clearCart = _useCart.clearCart,
+    removeItem = _useCart.removeItem; // Add removeItem from context
 
   // Részösszegek összegének inicializálása
   var totalAmount = 0;
@@ -14911,91 +14912,106 @@ function Cart() {
     clearCart(); // Kosár kiürítése a contextben
     setCount(0); // A count nullázása
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "container mt-4 text-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-        children: "Kos\xE1r"
-      }), count > 0 &&
-      /*#__PURE__*/
-      // Csak akkor jelenik meg, ha a count > 0
-      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
-          children: ["Pizz\xE1k sz\xE1ma a kos\xE1rban: ", count]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "btn btn-danger mt-3 rounded-0 fs-4",
-          onClick: handleClearCart // Kosár ürítése és count nullázása
-          ,
-          children: "Kos\xE1r \xFCr\xEDt\xE9se"
-        })]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "container mt-4 custom-container",
-      children: cartItems.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "alert alert-primary rounded-0",
-        role: "alert",
-        children: "A kos\xE1r \xFCres."
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
-          className: "list-group",
-          children: cartItems.map(function (item, index) {
-            // Alapár, számra konvertálva
-            var basePrice = Number(item.price); // Győződj meg róla, hogy szám
+  var handleRemoveItem = function handleRemoveItem(index) {
+    removeItem(index); // Remove item from cart by index
+    setCount(function (prevCount) {
+      return prevCount - cartItems[index].quantity;
+    }); // Update count
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "container mt-4",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "row justify-content-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "col-10 border",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "text-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+            children: "Kos\xE1r"
+          }), count > 0 &&
+          /*#__PURE__*/
+          // Csak akkor jelenik meg, ha a count > 0
+          (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
+              children: ["Pizz\xE1k sz\xE1ma a kos\xE1rban: ", count]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              className: "btn btn-danger mt-3 rounded-0 fs-4",
+              onClick: handleClearCart // Kosár ürítése és count nullázása
+              ,
+              children: "Kos\xE1r \xFCr\xEDt\xE9se"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "mt-4 custom-container",
+          children: cartItems.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "alert alert-primary rounded-0",
+            role: "alert",
+            children: "A kos\xE1r \xFCres."
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+              className: "list-group",
+              children: cartItems.map(function (item, index) {
+                // Alapár, számra konvertálva
+                var basePrice = Number(item.price);
 
-            // Árkalkuláció a méret alapján
-            var adjustedPrice = basePrice; // Alapár
+                // Árkalkuláció a méret alapján
+                var adjustedPrice = basePrice;
+                if (item.size === "XL") {
+                  adjustedPrice *= 1.25;
+                } else if (item.size === "XXL") {
+                  adjustedPrice *= 1.5;
+                }
 
-            if (item.size === "XL") {
-              adjustedPrice *= 1.25; // XL méret esetén
-            } else if (item.size === "XXL") {
-              adjustedPrice *= 1.5; // XXL méret esetén
-            }
-
-            // Részösszeg hozzáadása az összesített összeghez
-            totalAmount += adjustedPrice * item.quantity;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-              className: "list-group-item d-flex justify-content-between align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
-                  className: "mb-1",
-                  children: item.name
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-                  className: "mb-1",
-                  children: ["M\xE9ret: ", item.size]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-                  className: "mb-1",
-                  children: ["Mennyis\xE9g: ", item.quantity, " db"]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-                  className: "mb-1",
-                  children: ["\xC1r: ", adjustedPrice.toFixed(2), " ", "Ft / db"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-                  className: "mb-1",
-                  children: ["R\xE9sz\xF6sszeg:", " ", (adjustedPrice * item.quantity).toFixed(2), " ", "Ft"]
-                })]
-              })]
-            }, index);
+                // Részösszeg hozzáadása az összesített összeghez
+                totalAmount += adjustedPrice * item.quantity;
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+                  className: "list-group-item d-flex justify-content-between align-items-center",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+                      className: "mb-1",
+                      children: item.name
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                      className: "mb-1",
+                      children: ["M\xE9ret: ", item.size]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                      className: "mb-1",
+                      children: ["Mennyis\xE9g:", " ", item.quantity, " db"]
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                      className: "mb-1",
+                      children: ["\xC1r:", " ", Math.round(adjustedPrice), " ", "Ft / db"]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                      className: "mb-1",
+                      children: ["R\xE9sz\xF6sszeg:", " ", Math.round(adjustedPrice * item.quantity), " ", "Ft"]
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                    className: "btn btn-danger rounded-0",
+                    onClick: function onClick() {
+                      return handleRemoveItem(index);
+                    } // Remove item
+                    ,
+                    children: "T\xF6r\xF6l"
+                  })]
+                }, index);
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+              className: "mt-4",
+              children: ["\xD6sszesen: ", Math.round(totalAmount), " Ft"]
+            })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
-          className: "mt-4",
-          children: ["\xD6sszesen: ", Math.round(totalAmount), " Ft"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "text-center mt-4",
+          children: count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              className: "btn btn-danger mt-3 rounded-0 fs-4",
+              onClick: handleClearCart,
+              children: "Kos\xE1r \xFCr\xEDt\xE9se"
+            })
+          })
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "container mt-4 text-center",
-      children: count > 0 &&
-      /*#__PURE__*/
-      // Csak akkor jelenik meg, ha a count > 0
-      (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "btn btn-danger mt-3 rounded-0 fs-4",
-          onClick: handleClearCart // Kosár ürítése és count nullázása
-          ,
-          children: "Kos\xE1r \xFCr\xEDt\xE9se"
-        })
-      })
-    })]
+    })
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Cart);
@@ -15032,7 +15048,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-// CartContext.js
 
 
 // Kosár Context létrehozása
@@ -15057,11 +15072,21 @@ var CartProvider = function CartProvider(_ref) {
   var clearCart = function clearCart() {
     setCartItems([]);
   };
+
+  // Elem eltávolítása a kosárból
+  var removeItem = function removeItem(index) {
+    setCartItems(function (prevItems) {
+      return prevItems.filter(function (_, i) {
+        return i !== index;
+      });
+    });
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(CartContext.Provider, {
     value: {
       cartItems: cartItems,
       addToCart: addToCart,
-      clearCart: clearCart
+      clearCart: clearCart,
+      removeItem: removeItem
     },
     children: children
   });

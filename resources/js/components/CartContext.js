@@ -1,4 +1,3 @@
-// CartContext.js
 import React, { createContext, useContext, useState } from "react";
 
 // Kosár Context létrehozása
@@ -19,8 +18,15 @@ export const CartProvider = ({ children }) => {
         setCartItems([]);
     };
 
+    // Elem eltávolítása a kosárból
+    const removeItem = (index) => {
+        setCartItems((prevItems) => prevItems.filter((_, i) => i !== index));
+    };
+
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, clearCart }}>
+        <CartContext.Provider
+            value={{ cartItems, addToCart, clearCart, removeItem }}
+        >
             {children}
         </CartContext.Provider>
     );
