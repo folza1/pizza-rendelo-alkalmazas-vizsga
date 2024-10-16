@@ -14916,6 +14916,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 function Cart() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
   var _useOutletContext = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useOutletContext)(),
     count = _useOutletContext.count,
     setCount = _useOutletContext.setCount;
@@ -14992,6 +14993,8 @@ function Cart() {
   };
   var handleCloseSuccessModal = function handleCloseSuccessModal() {
     setShowSuccessModal(false); // Close the success modal
+    handleClearCart();
+    navigate("/"); // Navigate to the / route
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "container mt-4",

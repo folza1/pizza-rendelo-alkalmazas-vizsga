@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import "./cart.css";
 import axios from "axios";
 import { zip } from "lodash";
 
 function Cart() {
+    const navigate = useNavigate();
+
     const { count, setCount } = useOutletContext();
     const { cartItems, clearCart, removeItem } = useCart();
     const [showModal, setShowModal] = useState(false); // State to control modal visibility
@@ -74,6 +76,8 @@ function Cart() {
 
     const handleCloseSuccessModal = () => {
         setShowSuccessModal(false); // Close the success modal
+        handleClearCart();
+        navigate("/"); // Navigate to the / route
     };
 
     return (
