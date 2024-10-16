@@ -24,13 +24,22 @@ function Footer() {
                     <div className="col-md-4">
                         <h5>Kövess minket</h5>
                         <div>
-                            <a href="#" className="text-white me-3">
+                            <a
+                                href="http://facebook.com"
+                                className="text-white me-3"
+                            >
                                 <i className="bi bi-facebook"></i>
                             </a>
-                            <a href="#" className="text-white me-3">
+                            <a
+                                href="http://instagram.com"
+                                className="text-white me-3"
+                            >
                                 <i className="bi bi-instagram"></i>
                             </a>
-                            <a href="#" className="text-white me-3">
+                            <a
+                                href="http://twitter.com"
+                                className="text-white me-3"
+                            >
                                 <i className="bi bi-twitter"></i>
                             </a>
                         </div>

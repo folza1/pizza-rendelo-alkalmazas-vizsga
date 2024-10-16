@@ -9,7 +9,7 @@ import Cart from "./Cart";
 import NoPage from "./NoPage";
 import { CartProvider } from "./CartContext";
 
-function Example() {
+function MainComponent() {
     return (
         <BrowserRouter>
             <CartProvider>
@@ -27,8 +27,8 @@ function Example() {
     );
 }
 
-export default Example;
+export default MainComponent;
 
-if (document.getElementById("example")) {
-    ReactDOM.render(<Example />, document.getElementById("example"));
+if (document.getElementById("main")) {
+    ReactDOM.render(<MainComponent />, document.getElementById("main"));
 }
