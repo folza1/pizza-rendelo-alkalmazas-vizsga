@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import "./cart.css";
@@ -12,6 +12,7 @@ function Cart() {
     const { cartItems, clearCart, removeItem } = useCart();
     const [showModal, setShowModal] = useState(false); // State to control modal visibility
     const [showSuccessModal, setShowSuccessModal] = useState(false); // State for success modal
+    const [showLoadingModal, setShowLoadingModal] = useState(false); // State for loading modal
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -74,23 +75,37 @@ function Cart() {
         setShowModal(false); // Close the modal
     };
 
-    const handleCloseSuccessModal = () => {
-        // Send cartItems and formData to the backend
-        axios
-            .post("/api/send-email", { cartItems, formData })
-            .then((response) => {
-                if (response.status === 200) {
-                    console.log(response.data.message); // This will log the message from the backend
-                    // Close the success modal and clear the cart
-                    setShowSuccessModal(false);
-                    handleClearCart();
-                    navigate("/"); // Navigate to the / route
-                }
-            })
-            .catch((error) => {
-                console.error("Error sending email:", error);
+    const handleCloseSuccessModal = async () => {
+        // Show loading modal while sending email
+        setShowLoadingModal(true);
+
+        try {
+            const response = await axios.post("/api/send-email", {
+                cartItems,
+                formData,
             });
+            if (response.status === 200) {
+                console.log(response.data.message); // This will log the message from the backend
+                // Close the success modal and clear the cart
+                setShowSuccessModal(false);
+                handleClearCart();
+                navigate("/"); // Navigate to the / route
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+        } finally {
+            // Hide loading modal once the request is completed
+            setShowLoadingModal(false);
+        }
     };
+
+    useEffect(() => {
+        let isMounted = true; // Boolean változó a komponens állapotának követésére
+
+        return () => {
+            isMounted = false; // A komponens le bontásakor a boolean változót false-ra állítjuk
+        };
+    }, []); // A useEffect függvény itt
 
     return (
         <div className="container my-4">
@@ -459,6 +474,30 @@ function Cart() {
                                 >
                                     Bezárás
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {/* Loading Modal */}
+            {showLoadingModal && (
+                <div
+                    className="modal show rounded-0"
+                    style={{
+                        display: "block",
+                        backgroundColor: "rgba(0,0,0,0.5)",
+                    }}
+                    tabIndex="-1"
+                >
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-body text-center">
+                                <h5>Email küldése folyamatban...</h5>
+                                <div className="spinner-border" role="status">
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
