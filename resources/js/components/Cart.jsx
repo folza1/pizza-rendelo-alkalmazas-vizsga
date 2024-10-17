@@ -108,7 +108,7 @@ function Cart() {
     }, []); // A useEffect függvény itt
 
     return (
-        <div className="container my-4">
+        <div className="container my-4 container-background">
             <div className="row justify-content-center">
                 <div className="col-10 border">
                     <div className="text-center">

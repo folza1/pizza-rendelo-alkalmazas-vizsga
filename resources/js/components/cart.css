@@ -3,6 +3,27 @@
     height: auto; /* Ez alapértelmezés szerint automatikus, de itt is megadhatod */
 }
 
+.container-background {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.container-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/pizza-background.jpeg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05; /* Csak a háttérkép opacitása */
+    z-index: -1; /* Helyezd a háttérképet a tartalom mögé */
+}
+
 .color-red{
     color: red;
 }
