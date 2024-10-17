@@ -15602,6 +15602,8 @@ function Footer() {
             children: "Pizza Rendel\u0151"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
             children: ["1234 Budapest, Pizz\xE9ria utca 5.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), "Telefonsz\xE1m: +36 1 234 5678"]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+            children: "info@pizzarendelo.hu"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
           className: "col-md-4",
@@ -15641,6 +15643,8 @@ function Footer() {
                 className: "bi bi-twitter"
               })
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+            children: "Ha b\xE1rmilyen k\xE9rd\xE9se van, ne habozzon kapcsolatba l\xE9pni vel\xFCnk!"
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {

@@ -10,6 +10,7 @@ function Footer() {
                             <br />
                             Telefonszám: +36 1 234 5678
                         </p>
+                        <p>info@pizzarendelo.hu</p>
                     </div>
 
                     <div className="col-md-4">
@@ -43,6 +44,10 @@ function Footer() {
                                 <i className="bi bi-twitter"></i>
                             </a>
                         </div>
+                        <p>
+                            Ha bármilyen kérdése van, ne habozzon kapcsolatba
+                            lépni velünk!
+                        </p>
                     </div>
                 </div>
 
