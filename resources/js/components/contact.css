@@ -1,0 +1,42 @@
+.contact-container {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 20px;
+    margin: 40px auto; /* Center the container */
+    font-family: Arial, sans-serif;
+}
+
+.orange-text {
+    color: #e74c3c; /* Pizza color */
+}
+
+.font-weight-bolder {
+    font-weight: bolder;
+}
+
+.contact-info p {
+    font-size: 16px;
+    color: #333;
+}
+
+
+.contact-form {
+    margin-top: 20px;
+}
+
+.contact-form h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.orange-color{
+    background-color: #e74c3c;
+}

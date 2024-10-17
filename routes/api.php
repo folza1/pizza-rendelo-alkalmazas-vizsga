@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Pizza;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::get('/pizzas', function () {
 Route::post('/order', [OrderController::class, 'placeOrder']);
 
 Route::post('/send-email', [OrderController::class, 'sendEmail']);
+
+Route::post('/contact', [ContactController::class, 'validateMessage']);
