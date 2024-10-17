@@ -33,3 +33,5 @@ Route::post('/order', [OrderController::class, 'placeOrder']);
 Route::post('/send-email', [OrderController::class, 'sendEmail']);
 
 Route::post('/contact', [ContactController::class, 'validateMessage']);
+
+Route::post('/send-contact-email', [ContactController::class, 'sendEmail']);

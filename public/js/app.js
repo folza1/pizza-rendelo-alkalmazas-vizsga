@@ -15634,35 +15634,56 @@ function Contact() {
   };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
-      var response, errorMessages;
+      var response, emailResponse, errorMessages;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault(); // Prevent default form submission
-            _context.prev = 1;
-            _context.next = 4;
+            console.log(formData);
+            _context.prev = 2;
+            _context.next = 5;
             return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/contact", formData, {
               headers: {
                 "Content-Type": "application/json"
               }
             });
-          case 4:
+          case 5:
             response = _context.sent;
-            // Handle successful response
-            if (response.status === 200) {
-              alert("Üzenet sikeresen elküldve!");
-              setFormData({
-                name: "",
-                email: "",
-                message: ""
-              }); // Reset form
-              setError(""); // Clear any previous error messages
+            if (!(response.status === 200)) {
+              _context.next = 14;
+              break;
             }
-            _context.next = 11;
+            alert("Üzenet sikeresen elküldve!");
+
+            // Send contact email after the initial form submission
+            _context.next = 10;
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/send-contact-email", formData, {
+              headers: {
+                "Content-Type": "application/json"
+              }
+            });
+          case 10:
+            emailResponse = _context.sent;
+            // Handle response from the email sending
+            if (emailResponse.status === 200) {
+              console.log("Email successfully sent!");
+              // Optionally notify the user about the email status
+            } else {
+              console.error("Failed to send email:", emailResponse.data);
+              // Handle the failure case if necessary
+            }
+            setFormData({
+              name: "",
+              email: "",
+              message: ""
+            }); // Reset form
+            setError(""); // Clear any previous error messages
+          case 14:
+            _context.next = 19;
             break;
-          case 8:
-            _context.prev = 8;
-            _context.t0 = _context["catch"](1);
+          case 16:
+            _context.prev = 16;
+            _context.t0 = _context["catch"](2);
             if (_context.t0.response && _context.t0.response.data.errors) {
               // Add validation errors to the error array
               errorMessages = Object.values(_context.t0.response.data.errors).flat();
@@ -15670,11 +15691,11 @@ function Contact() {
             } else {
               setError(["An unexpected error occurred."]); // General error message
             }
-          case 11:
+          case 19:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[1, 8]]);
+      }, _callee, null, [[2, 16]]);
     }));
     return function handleSubmit(_x) {
       return _ref.apply(this, arguments);

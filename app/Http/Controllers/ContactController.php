@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 
 class ContactController extends Controller
 {
@@ -23,5 +26,15 @@ class ContactController extends Controller
 
         // Sikeres validálás után rendelés logika...
         return response()->json(['message' => 'Az üzenet sikeresen elküldve!'], 200);
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $formData = $request->all();
+
+        Mail::to($formData['email'])->send(new ContactMail($formData));
+
+
+        return response()->json(['message' => 'Email sent successfully!'], 200);
     }
 }

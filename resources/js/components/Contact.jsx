@@ -21,6 +21,7 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent default form submission
+        console.log(formData);
         try {
             const response = await axios.post("/api/contact", formData, {
                 headers: {
@@ -31,6 +32,27 @@ function Contact() {
             // Handle successful response
             if (response.status === 200) {
                 alert("Üzenet sikeresen elküldve!");
+
+                // Send contact email after the initial form submission
+                const emailResponse = await axios.post(
+                    "/api/send-contact-email",
+                    formData,
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
+
+                // Handle response from the email sending
+                if (emailResponse.status === 200) {
+                    console.log("Email successfully sent!");
+                    // Optionally notify the user about the email status
+                } else {
+                    console.error("Failed to send email:", emailResponse.data);
+                    // Handle the failure case if necessary
+                }
+
                 setFormData({ name: "", email: "", message: "" }); // Reset form
                 setError(""); // Clear any previous error messages
             }
