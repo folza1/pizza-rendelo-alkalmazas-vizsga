@@ -15159,7 +15159,7 @@ function Cart() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "mt-4 custom-container",
           children: cartItems.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "alert alert-primary rounded-0",
+            className: "alert alert-warning rounded-0",
             role: "alert",
             children: "A kos\xE1r \xFCres."
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {

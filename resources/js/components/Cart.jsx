@@ -129,7 +129,7 @@ function Cart() {
                     <div className="mt-4 custom-container">
                         {cartItems.length === 0 ? (
                             <div
-                                className="alert alert-primary rounded-0"
+                                className="alert alert-warning rounded-0"
                                 role="alert"
                             >
                                 A kosár üres.
