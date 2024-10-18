@@ -15588,6 +15588,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _contact_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contact.css */ "./resources/js/components/contact.css");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
@@ -15608,10 +15609,12 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
+
  // Ensure to create this CSS file
  // Import axios
 
 function Contact() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       name: "",
       email: "",
@@ -15624,6 +15627,10 @@ function Contact() {
     _useState4 = _slicedToArray(_useState3, 2),
     error = _useState4[0],
     setError = _useState4[1]; // State for error messages
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    showLoadingModal = _useState6[0],
+    setShowLoadingModal = _useState6[1]; // State for loading modal
 
   var handleChange = function handleChange(e) {
     var _e$target = e.target,
@@ -15653,9 +15660,8 @@ function Contact() {
               _context.next = 14;
               break;
             }
-            alert("Üzenet sikeresen elküldve!");
-
             // Send contact email after the initial form submission
+            setShowLoadingModal(true); // Show loading modal when the request starts
             _context.next = 10;
             return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/send-contact-email", formData, {
               headers: {
@@ -15666,11 +15672,12 @@ function Contact() {
             emailResponse = _context.sent;
             // Handle response from the email sending
             if (emailResponse.status === 200) {
-              console.log("Email successfully sent!");
-              // Optionally notify the user about the email status
+              console.log("Email successfully sent!"); // Optionally notify the user about the email status
+              setShowLoadingModal(false); // Hide loading modal after success
+              navigate("/");
             } else {
               console.error("Failed to send email:", emailResponse.data);
-              // Handle the failure case if necessary
+              setShowLoadingModal(false); // Hide loading modal on error
             }
             setFormData({
               name: "",
@@ -15701,8 +15708,8 @@ function Contact() {
       return _ref.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "container mt-2",
       children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "row justify-content-center",
@@ -15803,7 +15810,33 @@ function Contact() {
           })]
         })
       })]
-    })
+    }), showLoadingModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "modal show",
+      style: {
+        display: "block",
+        backgroundColor: "rgba(0,0,0,0.5)"
+      },
+      tabIndex: "-1",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "modal-dialog",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "modal-content rounded-0",
+          children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "modal-body text-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+              children: "Email k\xFCld\xE9se folyamatban..."
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "spinner-border",
+              role: "status",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "visually-hidden",
+                children: "Loading..."
+              })
+            })]
+          })]
+        })
+      })
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Contact);

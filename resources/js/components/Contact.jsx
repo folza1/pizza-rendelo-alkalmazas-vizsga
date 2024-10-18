@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./contact.css"; // Ensure to create this CSS file
 import axios from "axios"; // Import axios
 
 function Contact() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         message: "",
     });
     const [error, setError] = useState(""); // State for error messages
+    const [showLoadingModal, setShowLoadingModal] = useState(false); // State for loading modal
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -31,9 +34,8 @@ function Contact() {
 
             // Handle successful response
             if (response.status === 200) {
-                alert("Üzenet sikeresen elküldve!");
-
                 // Send contact email after the initial form submission
+                setShowLoadingModal(true); // Show loading modal when the request starts
                 const emailResponse = await axios.post(
                     "/api/send-contact-email",
                     formData,
@@ -46,13 +48,13 @@ function Contact() {
 
                 // Handle response from the email sending
                 if (emailResponse.status === 200) {
-                    console.log("Email successfully sent!");
-                    // Optionally notify the user about the email status
+                    console.log("Email successfully sent!"); // Optionally notify the user about the email status
+                    setShowLoadingModal(false); // Hide loading modal after success
+                    navigate("/");
                 } else {
                     console.error("Failed to send email:", emailResponse.data);
-                    // Handle the failure case if necessary
+                    setShowLoadingModal(false); // Hide loading modal on error
                 }
-
                 setFormData({ name: "", email: "", message: "" }); // Reset form
                 setError(""); // Clear any previous error messages
             }
@@ -174,6 +176,32 @@ function Contact() {
                     </div>
                 </div>
             </div>
+            {/* Loading Modal */}
+            {showLoadingModal && (
+                <div
+                    className="modal show"
+                    style={{
+                        display: "block",
+                        backgroundColor: "rgba(0,0,0,0.5)",
+                    }}
+                    tabIndex="-1"
+                >
+                    <div className="modal-dialog">
+                        <div className="modal-content rounded-0">
+                            {" "}
+                            {/* Itt van a rounded-0 osztály */}
+                            <div className="modal-body text-center">
+                                <h5>Email küldése folyamatban...</h5>
+                                <div className="spinner-border" role="status">
+                                    <span className="visually-hidden">
+                                        Loading...
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }

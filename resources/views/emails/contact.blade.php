@@ -24,8 +24,11 @@
 
         h3 {
             color: #5a5a5a;
-            font-size: 24px;
             margin-bottom: 20px;
+        }
+
+        h4 {
+            color: #5a5a5a;
         }
 
         .info {
@@ -61,6 +64,7 @@
 <body>
     <div class="container">
         <h3>Új üzenet érkezett a kapcsolatfelvételi űrlapról!</h3>
+        <h4>PizzaRendelő.hu</h4>
 
         <div class="info">
             <strong>Név:</strong> {{ $formData['name'] }}
