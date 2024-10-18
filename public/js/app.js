@@ -14643,7 +14643,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".contact-container {\n    background-color: #f8f9fa; /* Light gray background */\n    padding: 20px;\n    margin: 40px auto; /* Center the container */\n    font-family: Arial, sans-serif;\n}\n\n.orange-text {\n    color: #e74c3c; /* Pizza color */\n}\n\n.font-weight-bolder {\n    font-weight: bolder;\n}\n\n.contact-info p {\n    font-size: 16px;\n    color: #333;\n}\n\n\n.contact-form {\n    margin-top: 20px;\n}\n\n.contact-form h2 {\n    margin-bottom: 10px;\n    color: #333;\n}\n\n.contact-form input,\n.contact-form textarea {\n    width: 100%;\n    padding: 10px;\n    margin-bottom: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n.orange-color{\n    background-color: #e74c3c;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".contact-container {\n    background-color: #f8f9fa; /* Light gray background */\n    padding: 20px;\n    margin: 40px auto; /* Center the container */\n    font-family: Arial, sans-serif;\n}\n\n.orange-text {\n    color: #e74c3c; /* Pizza color */\n}\n\n.font-weight-bolder {\n    font-weight: bolder;\n}\n\n.contact-info p {\n    font-size: 16px;\n    color: #333;\n}\n\n\n.contact-form {\n    margin-top: 20px;\n}\n\n.contact-form h2 {\n    margin-bottom: 10px;\n    color: #333;\n}\n\n.contact-form input,\n.contact-form textarea {\n    width: 100%;\n    padding: 10px;\n    margin-bottom: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n.orange-color{\n    background-color: #e74c3c;\n}\n\n.bg-lightgray:hover{\n    background-color: lightseagreen;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -15804,7 +15804,7 @@ function Contact() {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               type: "submit",
-              className: "btn orange-color w-100 rounded-0 border fs-3",
+              className: "btn orange-color bg-lightgray w-100 rounded-0 border fs-3",
               children: "K\xFCld\xE9s"
             })]
           })]

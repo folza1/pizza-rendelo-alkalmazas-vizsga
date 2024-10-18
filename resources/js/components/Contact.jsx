@@ -168,7 +168,7 @@ function Contact() {
                             </div>
                             <button
                                 type="submit"
-                                className="btn orange-color w-100 rounded-0 border fs-3"
+                                className="btn orange-color bg-lightgray w-100 rounded-0 border fs-3"
                             >
                                 Küldés
                             </button>
