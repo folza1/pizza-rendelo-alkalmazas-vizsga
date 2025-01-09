@@ -19,7 +19,8 @@ use App\Models\Topping;
 Route::get('/{any?}', function () {
 
     return view('welcome');
-
+    
+    // Teszt
     // // Új pizza létrehozása
 
     // $margherita = Pizza::create([
